@@ -17,46 +17,126 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'overview',
-      description:
-        'Used both for the <meta> description tag for SEO, and the personal website subheader.',
-      title: 'Description',
-      type: 'array',
-      of: [
-        // Paragraphs
-        defineArrayMember({
-          lists: [],
-          marks: {
-            annotations: [
-              {
-                name: 'link',
-                type: 'object',
-                title: 'Link',
-                fields: [
+      name: 'hero',
+      title: 'Hero',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'title',
+          title: 'Title',
+          type: 'string',
+          description: 'Title for the hero section',
+        }),
+        defineField({
+          name: 'overview',
+          description:
+            'Used both for the <meta> description tag for SEO, and the personal website subheader.',
+          title: 'Description',
+          type: 'array',
+          of: [
+            // Paragraphs
+            defineArrayMember({
+              lists: [],
+              marks: {
+                annotations: [
                   {
-                    name: 'href',
-                    type: 'url',
-                    title: 'Url',
+                    name: 'link',
+                    type: 'object',
+                    title: 'Link',
+                    fields: [
+                      {
+                        name: 'href',
+                        type: 'url',
+                        title: 'Url',
+                      },
+                    ],
+                  },
+                ],
+                decorators: [
+                  {
+                    title: 'Italic',
+                    value: 'em',
+                  },
+                  {
+                    title: 'Strong',
+                    value: 'strong',
                   },
                 ],
               },
-            ],
-            decorators: [
-              {
-                title: 'Italic',
-                value: 'em',
-              },
-              {
-                title: 'Strong',
-                value: 'strong',
-              },
-            ],
-          },
-          styles: [],
-          type: 'block',
+              styles: [],
+              type: 'block',
+            }),
+          ],
+          validation: (rule) => rule.max(155).required(),
+        }),
+        defineField({
+          name: 'background',
+          title: 'Background',
+          type: 'image',
+          description: 'Background image for the hero section',
+        }),
+        defineField({
+          name: 'logo',
+          title: 'Logo',
+          type: 'image',
+          description: 'Upload your website logo here',
+        }),
+        // defineField({
+        //   name: 'navButtons',
+        //   title: 'Navigation Buttons',
+        //   type: 'array',
+        //   of: [
+        //     defineArrayMember({
+        //       type: 'object',
+        //       fields: [
+        //         {
+        //           name: 'label',
+        //           type: 'string',
+        //           title: 'Button Label',
+        //         },
+        //         {
+        //           name: 'link',
+        //           type: 'string',
+        //           title: 'Button Link',
+        //         },
+        //       ],
+        //     }),
+        //   ],
+        //   description: 'Add navigation buttons (e.g., Who, What, Why)',
+        // }),
+        defineField({
+          name: 'contactCTA',
+          title: 'Contact CTA',
+          type: 'object',
+          fields: [
+            {
+              name: 'text',
+              type: 'string',
+              title: 'CTA Text',
+              description: 'e.g., "Drop a line"',
+            },
+            {
+              name: 'icon',
+              type: 'image',
+              title: 'CTA Icon',
+            },
+            {
+              name: 'link',
+              type: 'string',
+              title: 'CTA Link',
+            },
+          ],
+          description: 'Add a "Drop a line" CTA with text and icon',
         }),
       ],
-      validation: (rule) => rule.max(155).required(),
+    }),
+    defineField({
+      name: 'who',
+      title: 'Who',
+      description:
+        'This section is the "Who" section of your personal website. It should contain information about you.',
+      type: 'reference',
+      to: [{ type: 'who' }],
     }),
     defineField({
       name: 'showcaseProjects',

@@ -9,6 +9,7 @@ import {
   pagesBySlugQuery,
   projectBySlugQuery,
   settingsQuery,
+  globalNavigationQuery,
 } from '@/sanity/lib/queries'
 import { token } from '@/sanity/lib/token'
 import {
@@ -16,6 +17,7 @@ import {
   PagePayload,
   ProjectPayload,
   SettingsPayload,
+  NavigationPayload,
 } from '@/types'
 
 const serverClient = client.withConfig({
@@ -67,6 +69,14 @@ export function loadSettings() {
     settingsQuery,
     {},
     { next: { tags: ['settings', 'home', 'page', 'project'] } },
+  )
+}
+
+export function loadNavbar() {
+  return loadQuery<NavigationPayload>(
+    globalNavigationQuery,
+    {},
+    { next: { tags: ['home', 'page', 'project'] } },
   )
 }
 

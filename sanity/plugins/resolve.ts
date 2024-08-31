@@ -23,6 +23,10 @@ export const locations = {
     message: 'This document is used on all pages',
     tone: 'caution',
   }),
+  navigation: defineLocations({
+    message: 'This document is used to render the navigation',
+    tone: 'positive',
+  }),
   home: defineLocations({
     message: 'This document is used to render the front page',
     tone: 'positive',

@@ -3,7 +3,28 @@ import { groq } from 'next-sanity'
 export const homePageQuery = groq`
   *[_type == "home"][0]{
     _id,
-    overview,
+    title,
+    hero {
+      title,
+      overview,
+      background {
+        asset->{
+          url,
+          metadata {
+            dimensions,
+          },
+          _ref
+        }
+      },
+      logo {
+        asset->{
+          url,
+          metadata {
+            dimensions
+          }
+        }
+      }
+    },
     showcaseProjects[]->{
       _type,
       coverImage,
@@ -12,7 +33,18 @@ export const homePageQuery = groq`
       tags,
       title,
     },
-    title,
+    who->{
+      header,
+      title,
+      description,
+      circles[]{
+        title,
+        description,
+        subTitle,
+        outsideDescription[]
+      },
+      footerHeader
+    }
   }
 `
 
@@ -50,5 +82,35 @@ export const settingsQuery = groq`
       title
     },
     ogImage,
+  }
+`
+
+export const globalNavigationQuery = groq`
+  *[_type == "navigation"][0]{
+    title,
+    logo{
+      asset->{
+        url,
+        metadata {
+          dimensions
+        }
+      }
+    },
+    navItems[]{
+      label,
+      link
+    },
+    contactCTA{
+      text,
+      icon{
+        asset->{
+          url,
+          metadata {
+            dimensions
+          }
+        }
+      },
+      link
+    }
   }
 `

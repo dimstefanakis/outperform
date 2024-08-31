@@ -8,6 +8,7 @@ import { defineConfig } from 'sanity'
 import { presentationTool } from 'sanity/presentation'
 import { structureTool } from 'sanity/structure'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
+import { colorInput } from '@sanity/color-input'
 
 import { apiVersion, dataset, projectId, studioUrl } from '@/sanity/lib/api'
 import * as resolve from '@/sanity/plugins/resolve'
@@ -19,6 +20,8 @@ import milestone from '@/sanity/schemas/objects/milestone'
 import timeline from '@/sanity/schemas/objects/timeline'
 import home from '@/sanity/schemas/singletons/home'
 import settings from '@/sanity/schemas/singletons/settings'
+import navigation from '@/sanity/schemas/singletons/navigation'
+import who from '@/sanity/schemas/singletons/who'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -35,6 +38,8 @@ export default defineConfig({
       // Singletons
       home,
       settings,
+      navigation,
+      who,
       // Documents
       duration,
       page,
@@ -46,7 +51,7 @@ export default defineConfig({
   },
   plugins: [
     structureTool({
-      structure: pageStructure([home, settings]),
+      structure: pageStructure([home, settings, navigation]),
     }),
     presentationTool({
       resolve,
@@ -57,11 +62,12 @@ export default defineConfig({
       },
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([home.name, settings.name]),
+    singletonPlugin([home.name, settings.name, navigation.name]),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
     // Vision lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
+    colorInput(),
   ],
 })
