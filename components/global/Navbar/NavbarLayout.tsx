@@ -53,7 +53,7 @@ export default function Navbar(props: NavbarProps) {
               return (
                 <Link
                   key={key}
-                  className={`text-lg hover:text-black transition-colors duration-200 ${isSticky ? 'text-gray-800' : 'text-white'}`}
+                  className={`text-lg transition-colors duration-200 ${isSticky ? 'text-white' : 'text-white'}`}
                   href={href}
                 >
                   {menuItem.label}

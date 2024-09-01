@@ -43,7 +43,54 @@ export const homePageQuery = groq`
         subTitle,
         outsideDescription[]
       },
-      footerHeader
+      footerHeader,
+      footerDescription
+    },
+    what->{
+      title,
+      header,
+      description,
+      backgroundColor,
+      clients[]{
+        clientName,
+        clientImages[]{
+          asset->{
+            url,
+            metadata {
+              dimensions
+            }
+          }
+        }
+      },
+      caseStudies[]{
+        clientImage{
+          asset->{
+            url,
+            metadata {
+              dimensions
+            }
+          }
+        },
+        studyTitle,
+        studyDescription,
+        image{
+          asset->{
+            url,
+            metadata {
+              dimensions
+            }
+          }
+        },
+        studyPillars[]{
+          title,
+          description,
+          columnSpan,
+          carousel[]{
+            title,
+            description
+          }
+        }
+      }
     }
   }
 `

@@ -22,6 +22,7 @@ import home from '@/sanity/schemas/singletons/home'
 import settings from '@/sanity/schemas/singletons/settings'
 import navigation from '@/sanity/schemas/singletons/navigation'
 import who from '@/sanity/schemas/singletons/who'
+import what from '@/sanity/schemas/singletons/what'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -40,6 +41,7 @@ export default defineConfig({
       settings,
       navigation,
       who,
+      what,
       // Documents
       duration,
       page,

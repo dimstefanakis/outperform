@@ -5,6 +5,7 @@ import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { Header } from '@/components/shared/Header'
 import { Hero } from './Hero'
 import { Who } from './Who'
+import { What } from './What'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 
@@ -20,6 +21,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     showcaseProjects = [],
     hero,
     who,
+    what,
     title = '',
   } = data ?? {}
 
@@ -30,6 +32,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {/* Hero */}
       {hero && <Hero data={hero} />}
       {who && <Who data={who} />}
+      {what && <What data={what} />}
       {/* Overview */}
       {/* Showcase projects */}
       {/*{showcaseProjects && showcaseProjects.length > 0 && (

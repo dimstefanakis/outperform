@@ -65,7 +65,7 @@ export function WhoCarousel({ data }: { data: WhoSection }) {
             )
           })}
         </CarouselContent>
-        <div className="w-full flex items-center justify-center mt-10">
+        <div className="w-full flex items-center justify-center my-20">
           <div className="w-full max-w-[200px] bg-gray-50 block md:hidden h-1 relative">
             <Separator
               className={`w-full h-1 bg-blue-500 transition-all duration-300 ease-in-out`}

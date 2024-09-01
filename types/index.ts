@@ -1,6 +1,40 @@
 import type { PortableTextBlock } from 'next-sanity'
 import type { Image } from 'sanity'
 
+export interface Client {
+  clientName?: string
+  clientImages?: Image[]
+}
+
+export interface CarouselItem {
+  title?: string
+  description?: string
+}
+
+export interface StudyPillar {
+  title?: string
+  description?: string
+  columnSpan?: number
+  carousel?: CarouselItem[]
+}
+
+export interface CaseStudy {
+  clientImage?: Image
+  studyTitle?: string
+  studyDescription?: string
+  image?: Image
+  studyPillars?: StudyPillar[]
+}
+
+export interface WhatSection {
+  title?: string
+  header?: string
+  description?: string
+  backgroundColor?: string
+  clients?: Client[]
+  caseStudies?: CaseStudy[]
+}
+
 export interface MenuItem {
   _type: string
   slug?: string
@@ -51,6 +85,7 @@ export interface WhoSection {
   description: string
   circles: CircleInterface[]
   footerHeader: FooterHeaderBlock[]
+  footerDescription: string
 }
 
 export interface HeroSection {
@@ -84,6 +119,7 @@ export interface HomePagePayload {
   showcaseProjects?: ShowcaseProject[]
   hero?: HeroSection
   who?: WhoSection
+  what?: WhatSection
   title?: string
 }
 

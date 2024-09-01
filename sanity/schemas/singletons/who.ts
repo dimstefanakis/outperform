@@ -108,5 +108,10 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'footerDescription',
+      title: 'Footer Description',
+      type: 'text',
+    }),
   ],
 })

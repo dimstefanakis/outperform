@@ -22,6 +22,17 @@ export function CustomPortableText({
       },
     },
     marks: {
+      color: ({ children, value }) => {
+        return (
+          <span
+            style={{
+              color: value?.hex?.hex,
+            }}
+          >
+            {children}
+          </span>
+        )
+      },
       link: ({ children, value }) => {
         return (
           <a

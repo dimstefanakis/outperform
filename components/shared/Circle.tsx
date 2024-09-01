@@ -2,7 +2,6 @@ import { CircleInterface } from '@/types'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 
 export function Circle({ data }: { data: CircleInterface }) {
-  console.log(data)
   return (
     <div className="flex flex-col items-center">
       <div className="w-[250px] h-[250px] bg-black rounded-full flex flex-col items-center justify-center text-white p-5">
