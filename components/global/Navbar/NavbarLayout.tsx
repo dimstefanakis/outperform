@@ -26,12 +26,13 @@ export default function Navbar(props: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  let isSafari =
-    navigator.vendor &&
-    navigator.vendor.indexOf('Apple') > -1 &&
-    navigator.userAgent &&
-    navigator.userAgent.indexOf('CriOS') == -1 &&
-    navigator.userAgent.indexOf('FxiOS') == -1
+  let isSafari = navigator
+    ? navigator.vendor &&
+      navigator.vendor.indexOf('Apple') > -1 &&
+      navigator.userAgent &&
+      navigator.userAgent.indexOf('CriOS') == -1 &&
+      navigator.userAgent.indexOf('FxiOS') == -1
+    : null
 
   return (
     <nav
