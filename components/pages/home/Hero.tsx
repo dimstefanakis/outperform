@@ -13,18 +13,18 @@ export interface HeroProps {
 export async function Hero({ data }: HeroProps) {
   return (
     <div className="w-full flex justify-center align-center hero-section px-2 md:px-3 lg:px-3">
-      <div className="w-full bg-black h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[60vh] xl:h-[70vh] 2xl:h-[100vh] rounded-[50px] mt-2">
+      <div className="w-full bg-black h-[70vh] sm:h-[70vh] md:h-[70vh] lg:h-[70vh] xl:h-[70vh] rounded-[50px] mt-2">
         {/*<Navbar />*/}
 
         <div className="w-full h-full relative">
           <div className="text-white text-center flex items-center justify-evenly h-full">
-            <div className="flex flex-col">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold max-w-[100px]">
+            <div className="flex flex-col px-6 md:px-0">
+              <h1 className="text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-left max-w-[200px] md:max-w-[100px]">
                 {data?.title}
               </h1>
               <CustomPortableText
                 value={data?.overview}
-                paragraphClasses="max-w-[300px] lg:ml-10 text-left mt-4 text-gray-400"
+                paragraphClasses="max-w-full md:max-w-[300px] lg:ml-10 text-left mt-4 text-gray-400"
               />
             </div>
             <div className="hidden md:block">

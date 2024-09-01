@@ -26,9 +26,16 @@ export default function Navbar(props: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  let isSafari =
+    navigator.vendor &&
+    navigator.vendor.indexOf('Apple') > -1 &&
+    navigator.userAgent &&
+    navigator.userAgent.indexOf('CriOS') == -1 &&
+    navigator.userAgent.indexOf('FxiOS') == -1
+
   return (
     <nav
-      className={`fixed flex items-center h-[70px] lg:h-[100px] px-6 lg:px-10 top-0 left-0 right-0 z-50 transition-all duration-300 ${isSticky ? 'backdrop-blur-md mix-blend-difference' : 'bg-transparent'}`}
+      className={`fixed flex items-center h-[70px] lg:h-[100px] px-6 lg:px-10 top-0 left-0 right-0 z-50 transition-all duration-300 ${isSticky ? `${isSafari ? '' : 'backdrop-blur-md'} mix-blend-difference` : 'bg-transparent'}`}
       style={{
         height: isSticky ? '70px' : '',
       }}
