@@ -1,10 +1,11 @@
 'use server'
-import { HeroSection } from '@/types'
-import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { Suspense } from 'react'
-import ImageBox from '@/components/shared/ImageBox'
-import { Navbar } from '@/components/global/Navbar'
 import Image from 'next/image'
+import { Suspense } from 'react'
+
+import { Navbar } from '@/components/global/Navbar'
+import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import ImageBox from '@/components/shared/ImageBox'
+import { HeroSection } from '@/types'
 
 export interface HeroProps {
   data: HeroSection | null
@@ -23,6 +24,7 @@ export async function Hero({ data }: HeroProps) {
                 {data?.title}
               </h1>
               <CustomPortableText
+                // @ts-ignore
                 value={data?.overview}
                 paragraphClasses="max-w-full md:max-w-[300px] lg:ml-10 text-left mt-4 text-gray-400"
               />

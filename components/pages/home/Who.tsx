@@ -1,6 +1,5 @@
-import { WhoSection } from '@/types'
 import { Circle } from '@/components/shared/Circle'
-import { Separator } from '@/components/ui/separator'
+import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import {
   Carousel,
   CarouselContent,
@@ -8,8 +7,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
+import { Separator } from '@/components/ui/separator'
+import { WhoSection } from '@/types'
+
 import { WhoCarousel } from './WhoCarousel'
-import { CustomPortableText } from '@/components/shared/CustomPortableText'
 
 export function Who({ data }: { data: WhoSection }) {
   console.log(data.footerDescription)

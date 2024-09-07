@@ -3,11 +3,13 @@ import Link from 'next/link'
 
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { Header } from '@/components/shared/Header'
-import { Hero } from './Hero'
-import { Who } from './Who'
-import { What } from './What'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
+
+import { Hero } from './Hero'
+import { What } from './What'
+import { Who } from './Who'
+import { How } from './How'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -22,6 +24,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     hero,
     who,
     what,
+    how,
     title = '',
   } = data ?? {}
 
@@ -33,6 +36,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {hero && <Hero data={hero} />}
       {who && <Who data={who} />}
       {what && <What data={what} />}
+      {how && <How data={how} />}
       {/* Overview */}
       {/* Showcase projects */}
       {/*{showcaseProjects && showcaseProjects.length > 0 && (

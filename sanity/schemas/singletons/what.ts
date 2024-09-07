@@ -1,4 +1,4 @@
-import { defineType, defineField, defineArrayMember } from 'sanity'
+import { defineArrayMember,defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'what',
@@ -69,6 +69,17 @@ export default defineType({
               type: 'image',
             }),
             defineField({
+              name: 'imagePosition',
+              title: 'Image Position',
+              type: 'string',
+              options: {
+                list: [
+                  { title: 'Left', value: 'left' },
+                  { title: 'Right', value: 'right' },
+                ],
+              },
+            }),
+            defineField({
               name: 'studyTitle',
               title: 'Study Title',
               type: 'string',
@@ -105,6 +116,12 @@ export default defineType({
                     defineField({
                       name: 'columnSpan',
                       title: 'Column Span',
+                      type: 'number',
+                      validation: (Rule) => Rule.min(1).max(2),
+                    }),
+                    defineField({
+                      name: 'rowSpan',
+                      title: 'Row Span',
                       type: 'number',
                       validation: (Rule) => Rule.min(1).max(2),
                     }),

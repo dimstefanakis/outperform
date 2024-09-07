@@ -1,7 +1,5 @@
 import React from 'react'
-import { Separator } from '@/components/ui/separator'
-import ImageBox from './ImageBox'
-import { CaseStudy as CaseStudyInterface } from '@/types'
+
 import {
   Carousel,
   CarouselContent,
@@ -9,10 +7,17 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
+import { Separator } from '@/components/ui/separator'
+import { CaseStudy as CaseStudyInterface } from '@/types'
+
+import ImageBox from './ImageBox'
 
 export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
   const hasFullHeightCarousel = data?.studyPillars?.some(
     (pillar) => pillar.carousel,
+  )
+  const hasFullHeightPillar = data?.studyPillars?.some(
+    (pillar) => pillar.rowSpan === 2,
   )
 
   return (
@@ -28,14 +33,14 @@ export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
             </span>
           </div>
           <div
-            className={`grid grid-cols-2 ${hasFullHeightCarousel ? 'md:grid-rows-2 lg:grid-flow-col' : ''} gap-4`}
+            className={`grid grid-cols-2 ${hasFullHeightCarousel || hasFullHeightPillar ? 'md:grid-rows-2 lg:grid-flow-col' : ''} gap-4`}
           >
             {data?.studyPillars?.map((pillar, index) => (
               <div
                 key={index}
                 className={`
                   flex flex-col mb-6
-                  ${pillar.carousel ? 'col-span-2 md:col-span-1 md:row-span-2' : `col-span-2 md:col-span-${pillar.columnSpan || 1}`}
+                  ${pillar.carousel || hasFullHeightPillar ? 'col-span-2 md:col-span-1 md:row-span-2' : `col-span-2 md:col-span-${pillar.columnSpan || 1}`}
                 `}
               >
                 <h3 className="text-sm font-bold text-white uppercase">
@@ -48,7 +53,9 @@ export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
                   </p>
                 )}
                 {pillar.carousel && (
-                  <Carousel className={pillar.carousel ? 'flex-1 mt-6' : ''}>
+                  <Carousel
+                    className={pillar.carousel ? 'flex-1 mt-6 px-4' : ''}
+                  >
                     <CarouselContent
                       className={pillar.carousel ? 'h-full ml-0' : ''}
                     >
@@ -56,12 +63,10 @@ export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
                         <CarouselItem
                           key={index}
                           className={
-                            pillar.carousel
-                              ? 'h-full w-[80%] bg-[#242424] mx-2 p-4 rounded-lg'
-                              : ''
+                            pillar.carousel ? 'h-full w-[100%]  px-2  ' : ''
                           }
                         >
-                          <div className="flex flex-col h-full">
+                          <div className="flex flex-col bg-[#242424] rounded-lg p-4 h-full">
                             <h3 className="text-sm font-bold text-white uppercase">
                               {carouselItem.title}
                             </h3>
@@ -73,8 +78,8 @@ export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
                         </CarouselItem>
                       ))}
                     </CarouselContent>
-                    {/*<CarouselPrevious />
-                    <CarouselNext />*/}
+                    <CarouselPrevious className="left-0" />
+                    <CarouselNext className="right-0" />
                   </Carousel>
                 )}
               </div>

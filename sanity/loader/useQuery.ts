@@ -5,9 +5,9 @@ import {
 } from '@sanity/react-loader'
 import * as queryStore from '@sanity/react-loader'
 
-import { SettingsPayload, NavigationPayload } from '@/types'
+import { NavigationPayload,SettingsPayload } from '@/types'
 
-import { settingsQuery, globalNavigationQuery } from '../lib/queries'
+import { globalNavigationQuery,settingsQuery } from '../lib/queries'
 
 /**
  * Exports to be used in client-only or components that render both server and client

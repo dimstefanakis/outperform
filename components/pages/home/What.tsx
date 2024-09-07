@@ -1,6 +1,6 @@
-import { WhatSection } from '@/types'
 import CaseStudy from '@/components/shared/CaseStudy'
 import { Separator } from '@/components/ui/separator'
+import { WhatSection } from '@/types'
 
 export function What({ data }: { data: WhatSection }) {
   console.log(data)

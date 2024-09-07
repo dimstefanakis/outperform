@@ -1,5 +1,5 @@
-import { CircleInterface } from '@/types'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import { CircleInterface } from '@/types'
 
 export function Circle({ data }: { data: CircleInterface }) {
   return (

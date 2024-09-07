@@ -147,6 +147,14 @@ export default defineType({
       to: [{ type: 'what' }],
     }),
     defineField({
+      name: 'how',
+      title: 'How',
+      description:
+        'This section is the "How" section of your personal website. It should contain information about how you work.',
+      type: 'reference',
+      to: [{ type: 'how' }],
+    }),
+    defineField({
       name: 'showcaseProjects',
       title: 'Showcase projects',
       description:

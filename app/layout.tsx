@@ -1,6 +1,7 @@
 import './globals.css'
 
 import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
+import localFont from '@next/font/local'
 
 const serif = PT_Serif({
   variable: '--font-serif',
@@ -8,6 +9,17 @@ const serif = PT_Serif({
   subsets: ['latin'],
   weight: ['400', '700'],
 })
+
+const cfdromon = localFont({
+  src: [
+    {
+      path: '../public/fonts/CFDromon_Md.otf',
+      weight: '400',
+    },
+  ],
+  variable: '--font-cfdromon',
+})
+
 const sans = Inter({
   variable: '--font-sans',
   subsets: ['latin'],
@@ -28,7 +40,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${mono.variable} ${sans.variable} ${serif.variable}`}
+      className={`${cfdromon.variable} ${mono.variable} ${sans.variable} ${serif.variable}`}
     >
       <body>{children}</body>
     </html>

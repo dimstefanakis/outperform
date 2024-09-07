@@ -71,6 +71,7 @@ export const homePageQuery = groq`
             }
           }
         },
+        imagePosition,
         studyTitle,
         studyDescription,
         image{
@@ -85,10 +86,100 @@ export const homePageQuery = groq`
           title,
           description,
           columnSpan,
+          rowSpan,
           carousel[]{
             title,
             description
           }
+        }
+      }
+    },
+    how->{
+      header,
+      title,
+      description,
+      reporting{
+        title,
+        icon{
+          asset->{
+            url,
+            metadata {
+              dimensions
+            }
+          }
+        },
+        reporting_items[]{
+          image{
+            asset->{
+              url,
+              metadata {
+                dimensions
+              }
+            }
+          },
+          title,
+          description,
+          icon{
+            asset->{
+              url,
+              metadata {
+                dimensions
+              }
+            }
+          }
+        }
+      },
+      consulting{
+        title,
+        icon{
+          asset->{
+            url,
+            metadata {
+              dimensions
+            }
+          }
+        },
+        consulting_items[]{
+          image{
+            asset->{
+              url,
+              metadata {
+                dimensions
+              }
+            }
+          },
+          title,
+          description,
+          icon{
+            asset->{
+              url,
+              metadata {
+                dimensions
+              }
+            }
+          }
+        }
+      },
+      ads{
+        title,
+        icon{
+          asset->{
+            url,
+            metadata {
+              dimensions
+            }
+          }
+        },
+        ad_items[]{
+          image{
+            asset->{
+              url,
+              metadata {
+                dimensions
+              }
+            }
+          },
+          title
         }
       }
     }

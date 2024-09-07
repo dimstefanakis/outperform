@@ -1,6 +1,6 @@
 'use client'
 
-import { useSettings, useNavigation } from '@/sanity/loader/useQuery'
+import { useNavigation,useSettings } from '@/sanity/loader/useQuery'
 
 import NavbarLayout from './NavbarLayout'
 

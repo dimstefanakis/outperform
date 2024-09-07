@@ -15,11 +15,13 @@ export interface StudyPillar {
   title?: string
   description?: string
   columnSpan?: number
+  rowSpan?: number
   carousel?: CarouselItem[]
 }
 
 export interface CaseStudy {
   clientImage?: Image
+  imagePosition?: 'right' | 'left'
   studyTitle?: string
   studyDescription?: string
   image?: Image
@@ -33,6 +35,140 @@ export interface WhatSection {
   backgroundColor?: string
   clients?: Client[]
   caseStudies?: CaseStudy[]
+}
+
+export interface ReportingItem {
+  image?: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }
+  title?: string
+  description?: string
+  icon?: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }
+}
+
+export interface ConsultingItem {
+  image?: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }
+  title?: string
+  description?: string
+  icon?: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }
+}
+
+export interface AdItem {
+  image?: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }
+  title?: string
+}
+
+export interface ReportingSection {
+  title?: string
+  icon?: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }
+  reporting_items?: ReportingItem[]
+}
+
+export interface ConsultingSection {
+  title?: string
+  icon?: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }
+  consulting_items?: ConsultingItem[]
+}
+
+export interface AdsSection {
+  title?: string
+  icon?: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }
+  ad_items?: AdItem[]
+}
+
+export interface HowSection {
+  header?: string
+  title?: string
+  description?: string
+  reporting?: ReportingSection
+  consulting?: ConsultingSection
+  ads?: AdsSection
 }
 
 export interface MenuItem {
@@ -120,6 +256,7 @@ export interface HomePagePayload {
   hero?: HeroSection
   who?: WhoSection
   what?: WhatSection
+  how?: HowSection
   title?: string
 }
 

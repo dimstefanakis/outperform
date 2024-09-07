@@ -5,19 +5,19 @@ import { draftMode } from 'next/headers'
 
 import { client } from '@/sanity/lib/client'
 import {
+  globalNavigationQuery,
   homePageQuery,
   pagesBySlugQuery,
   projectBySlugQuery,
   settingsQuery,
-  globalNavigationQuery,
 } from '@/sanity/lib/queries'
 import { token } from '@/sanity/lib/token'
 import {
   HomePagePayload,
+  NavigationPayload,
   PagePayload,
   ProjectPayload,
   SettingsPayload,
-  NavigationPayload,
 } from '@/types'
 
 const serverClient = client.withConfig({

@@ -1,8 +1,7 @@
 'use client'
-import { useState, useEffect } from 'react'
-import { WhoSection } from '@/types'
+import { useEffect,useState } from 'react'
+
 import { Circle } from '@/components/shared/Circle'
-import { Separator } from '@/components/ui/separator'
 import {
   Carousel,
   CarouselContent,
@@ -11,7 +10,9 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import { type CarouselApi } from '@/components/ui/carousel'
+import { Separator } from '@/components/ui/separator'
 import useMediaQuery from '@/hooks/useMediaQuery'
+import { WhoSection } from '@/types'
 
 export function WhoCarousel({ data }: { data: WhoSection }) {
   const [api, setApi] = useState<CarouselApi>()

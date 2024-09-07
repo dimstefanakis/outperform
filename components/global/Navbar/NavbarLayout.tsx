@@ -1,8 +1,9 @@
 'use client'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+
 import ImageBox from '@/components/shared/ImageBox'
-import type { NavigationPayload, NavigationItem } from '@/types'
+import type { NavigationItem, NavigationPayload } from '@/types'
 
 interface NavbarProps {
   data: NavigationPayload
@@ -28,12 +29,11 @@ export default function Navbar(props: NavbarProps) {
 
   let isSafari = false
   try {
-    isSafari =
-      navigator.vendor &&
+    isSafari = (navigator.vendor &&
       navigator.vendor.indexOf('Apple') > -1 &&
       navigator.userAgent &&
       navigator.userAgent.indexOf('CriOS') == -1 &&
-      navigator.userAgent.indexOf('FxiOS') == -1
+      navigator.userAgent.indexOf('FxiOS') == -1) as boolean
   } catch (e) {
     console.log(e)
   }

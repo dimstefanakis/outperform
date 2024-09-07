@@ -3,12 +3,12 @@
  * This config is used to set up Sanity Studio that's mounted on the `app/studio/[[...index]]/page.tsx` route
  */
 
+import { colorInput } from '@sanity/color-input'
 import { visionTool } from '@sanity/vision'
 import { defineConfig } from 'sanity'
 import { presentationTool } from 'sanity/presentation'
 import { structureTool } from 'sanity/structure'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
-import { colorInput } from '@sanity/color-input'
 
 import { apiVersion, dataset, projectId, studioUrl } from '@/sanity/lib/api'
 import * as resolve from '@/sanity/plugins/resolve'
@@ -19,10 +19,11 @@ import duration from '@/sanity/schemas/objects/duration'
 import milestone from '@/sanity/schemas/objects/milestone'
 import timeline from '@/sanity/schemas/objects/timeline'
 import home from '@/sanity/schemas/singletons/home'
-import settings from '@/sanity/schemas/singletons/settings'
+import how from '@/sanity/schemas/singletons/how'
 import navigation from '@/sanity/schemas/singletons/navigation'
-import who from '@/sanity/schemas/singletons/who'
+import settings from '@/sanity/schemas/singletons/settings'
 import what from '@/sanity/schemas/singletons/what'
+import who from '@/sanity/schemas/singletons/who'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -42,6 +43,7 @@ export default defineConfig({
       navigation,
       who,
       what,
+      how,
       // Documents
       duration,
       page,
