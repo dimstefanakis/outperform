@@ -16,6 +16,18 @@ const cfdromon = localFont({
       path: '../public/fonts/CFDromon_Md.otf',
       weight: '400',
     },
+    {
+      path: '../public/fonts/CFDromon_Md.otf',
+      weight: '500',
+    },
+    {
+      path: '../public/fonts/CFDromon_Md.otf',
+      weight: '600',
+    },
+    {
+      path: '../public/fonts/CFDromon_Md.otf',
+      weight: '700',
+    },
   ],
   variable: '--font-cfdromon',
 })

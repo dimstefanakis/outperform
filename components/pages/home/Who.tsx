@@ -13,9 +13,8 @@ import { WhoSection } from '@/types'
 import { WhoCarousel } from './WhoCarousel'
 
 export function Who({ data }: { data: WhoSection }) {
-  console.log(data.footerDescription)
   return (
-    <div className="flex w-full flex-col">
+    <div id="who" className="flex w-full flex-col">
       <div className="flex w-full flex-col mt-24 px-4 lg:px-10">
         {data.header && (
           <div>

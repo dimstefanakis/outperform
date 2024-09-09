@@ -99,6 +99,11 @@ const config = {
           '@apply absolute inset-0 bg-white pointer-events-none mix-blend-difference':
             {},
         },
+        '.image-shadow': {
+          '-webkit-box-shadow': '0px 0px 30px -25px rgba(0,0,0,0.59)',
+          '-moz-box-shadow': '0px 0px 30px -25px rgba(0,0,0,0.59)',
+          'box-shadow': '0px 0px 30px -25px rgba(0,0,0,0.59)',
+        },
       }
       addUtilities(newUtilities, ['responsive', 'hover'])
     },

@@ -1,10 +1,11 @@
 import Ads from './Ads'
 import Reporting from './Reporting'
+import Consulting from './Consulting'
 import { HowSection } from '@/types'
 
 export function How({ data }: { data: HowSection }) {
   return (
-    <div className="w-full mt-24 px-0 md:px-3 lg:px-3">
+    <div id="how" className="w-full mt-24 px-0 md:px-3 lg:px-3">
       <div className="flex w-full flex-col py-10 px-4 lg:px-10 rounded-0 md:rounded-[50px]">
         {data.header && (
           <div>
@@ -23,6 +24,7 @@ export function How({ data }: { data: HowSection }) {
         )}
         {data.ads && <Ads data={data.ads} />}
         {data.reporting && <Reporting data={data.reporting} />}
+        {data.consulting && <Consulting data={data.consulting} />}
       </div>
     </div>
   )

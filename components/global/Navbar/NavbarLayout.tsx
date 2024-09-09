@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import ImageBox from '@/components/shared/ImageBox'
+import BurgerMenu from '@/components/shared/BurgerMenu'
+import useMediaQuery from '@/hooks/useMediaQuery'
 import type { NavigationItem, NavigationPayload } from '@/types'
 
 interface NavbarProps {
@@ -13,6 +15,7 @@ export default function Navbar(props: NavbarProps) {
   const { data } = props
   const menuItems = data?.navItems || ([] as NavigationItem[])
   const [isSticky, setIsSticky] = useState(false)
+  const isLaptop = useMediaQuery('(min-width: 1024px)')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,23 +59,29 @@ export default function Navbar(props: NavbarProps) {
               classesWrapper="w-[80px] object-contain relative"
             />
           </div>
-          <div className="flex items-center space-x-6">
-            {menuItems.map((menuItem, key) => {
-              const href = menuItem?.link
-              if (!href) {
-                return null
-              }
-              return (
-                <Link
-                  key={key}
-                  className={`text-lg transition-colors duration-200 ${isSticky ? 'text-white' : 'text-white'}`}
-                  href={href}
-                >
-                  {menuItem.label}
-                </Link>
-              )
-            })}
-          </div>
+          {isLaptop ? (
+            <div className="flex items-center space-x-6">
+              {menuItems.map((menuItem, key) => {
+                const href = menuItem?.link
+                if (!href) {
+                  return null
+                }
+                return (
+                  <Link
+                    key={key}
+                    className={`text-lg transition-colors duration-200 ${isSticky ? 'text-white' : 'text-white'}`}
+                    href={href}
+                  >
+                    {menuItem.label}
+                  </Link>
+                )
+              })}
+            </div>
+          ) : (
+            <div className="flex w-full justify-end">
+              <BurgerMenu menuItems={menuItems} />
+            </div>
+          )}
         </div>
       </div>
     </nav>

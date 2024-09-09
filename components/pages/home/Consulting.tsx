@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { ReportingSection } from '@/types'
+import { ConsultingSection } from '@/types'
 import {
   Carousel,
   CarouselContent,
@@ -13,7 +13,7 @@ import { type CarouselApi } from '@/components/ui/carousel'
 import ImageBox from '@/components/shared/ImageBox'
 import useMediaQuery from '@/hooks/useMediaQuery'
 
-export default function Reporting({ data }: { data: ReportingSection }) {
+export default function Consulting({ data }: { data: ConsultingSection }) {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
@@ -42,7 +42,7 @@ export default function Reporting({ data }: { data: ReportingSection }) {
       </div>
       {isLaptop ? (
         <div className="flex w-full">
-          {data?.reporting_items?.map((item, index) => {
+          {data?.consulting_items?.map((item, index) => {
             return (
               <div
                 key={index}
@@ -71,10 +71,10 @@ export default function Reporting({ data }: { data: ReportingSection }) {
           })}
         </div>
       ) : (
-        data.reporting_items && (
+        data.consulting_items && (
           <Carousel setApi={setApi} className="w-full md:max-w-full">
             <CarouselContent className="items-start ml-0">
-              {data.reporting_items.map((item, index) => {
+              {data.consulting_items.map((item, index) => {
                 return (
                   <CarouselItem
                     key={index}
