@@ -182,6 +182,34 @@ export const homePageQuery = groq`
           title
         }
       }
+    },
+    outroSection->{
+      title,
+      cta_text,
+      cta_icon {
+        asset-> {
+          url,
+          metadata {
+            dimensions
+          }
+        }
+      },
+      partners_image {
+        asset-> {
+          url,
+          metadata {
+            dimensions
+          }
+        }
+      },
+      brand_images[] {
+        asset-> {
+          url,
+          metadata {
+            dimensions
+          }
+        }
+      }
     }
   }
 `
@@ -223,6 +251,37 @@ export const settingsQuery = groq`
   }
 `
 
+export const outroSectionQuery = groq`
+  *[_type == "outroSection"][0] {
+    title,
+    cta_text,
+    cta_icon {
+      asset-> {
+        url,
+        metadata {
+          dimensions
+        }
+      }
+    },
+    partners_image {
+      asset-> {
+        url,
+        metadata {
+          dimensions
+        }
+      }
+    },
+    brand_images[] {
+      asset-> {
+        url,
+        metadata {
+          dimensions
+        }
+      }
+    }
+  }
+`
+
 export const globalNavigationQuery = groq`
   *[_type == "navigation"][0]{
     title,
@@ -249,6 +308,27 @@ export const globalNavigationQuery = groq`
         }
       },
       link
+    }
+  }
+`
+
+export const globalFooterQuery = groq`
+  *[_type == "footer"][0] {
+    leftItems[] {
+      text,
+      url
+    },
+    rightItems[] {
+      text,
+      url,
+      logo {
+        asset-> {
+          url,
+          metadata {
+            dimensions
+          }
+        }
+      }
     }
   }
 `

@@ -10,6 +10,7 @@ import { Hero } from './Hero'
 import { What } from './What'
 import { Who } from './Who'
 import { How } from './How'
+import { Outro } from './Outro'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -25,6 +26,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     who,
     what,
     how,
+    outro,
     title = '',
   } = data ?? {}
 
@@ -37,6 +39,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {who && <Who data={who} />}
       {what && <What data={what} />}
       {how && <How data={how} />}
+      {outro && <Outro data={outro} />}
       {/* Overview */}
       {/* Showcase projects */}
       {/*{showcaseProjects && showcaseProjects.length > 0 && (

@@ -155,6 +155,13 @@ export default defineType({
       to: [{ type: 'how' }],
     }),
     defineField({
+      name: 'outroSection',
+      title: 'Outro Section',
+      description: 'This section is the outro section of your website.',
+      type: 'reference',
+      to: [{ type: 'outroSection' }],
+    }),
+    defineField({
       name: 'showcaseProjects',
       title: 'Showcase projects',
       description:

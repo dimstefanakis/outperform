@@ -5,9 +5,13 @@ import {
 } from '@sanity/react-loader'
 import * as queryStore from '@sanity/react-loader'
 
-import { NavigationPayload,SettingsPayload } from '@/types'
+import { NavigationPayload, FooterPayload, SettingsPayload } from '@/types'
 
-import { globalNavigationQuery,settingsQuery } from '../lib/queries'
+import {
+  globalNavigationQuery,
+  globalFooterQuery,
+  settingsQuery,
+} from '../lib/queries'
 
 /**
  * Exports to be used in client-only or components that render both server and client
@@ -45,4 +49,8 @@ export function useNavigation(
   initial: QueryResponseInitial<NavigationPayload>,
 ) {
   return useQuery<NavigationPayload>(globalNavigationQuery, {}, { initial })
+}
+
+export function useFooter(initial: QueryResponseInitial<FooterPayload>) {
+  return useQuery<FooterPayload>(globalFooterQuery, {}, { initial })
 }

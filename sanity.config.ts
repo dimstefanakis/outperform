@@ -21,13 +21,14 @@ import timeline from '@/sanity/schemas/objects/timeline'
 import home from '@/sanity/schemas/singletons/home'
 import how from '@/sanity/schemas/singletons/how'
 import navigation from '@/sanity/schemas/singletons/navigation'
+import footer from '@/sanity/schemas/singletons/footer'
 import settings from '@/sanity/schemas/singletons/settings'
+import outro from '@/sanity/schemas/singletons/outro'
 import what from '@/sanity/schemas/singletons/what'
 import who from '@/sanity/schemas/singletons/who'
 
 const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
-  'Next.js Personal Website with Sanity.io'
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Outperform Sanity.io'
 
 export default defineConfig({
   basePath: studioUrl,
@@ -41,9 +42,11 @@ export default defineConfig({
       home,
       settings,
       navigation,
+      footer,
       who,
       what,
       how,
+      outro,
       // Documents
       duration,
       page,
@@ -55,7 +58,16 @@ export default defineConfig({
   },
   plugins: [
     structureTool({
-      structure: pageStructure([home, settings, navigation]),
+      structure: pageStructure([
+        home,
+        settings,
+        navigation,
+        footer,
+        who,
+        what,
+        how,
+        outro,
+      ]),
     }),
     presentationTool({
       resolve,
@@ -66,7 +78,16 @@ export default defineConfig({
       },
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([home.name, settings.name, navigation.name]),
+    singletonPlugin([
+      home.name,
+      settings.name,
+      navigation.name,
+      footer.name,
+      who.name,
+      what.name,
+      how.name,
+      outro.name,
+    ]),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
     // Vision lets you query your content with GROQ in the studio

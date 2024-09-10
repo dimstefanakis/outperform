@@ -6,6 +6,7 @@ import { draftMode } from 'next/headers'
 import { client } from '@/sanity/lib/client'
 import {
   globalNavigationQuery,
+  globalFooterQuery,
   homePageQuery,
   pagesBySlugQuery,
   projectBySlugQuery,
@@ -15,6 +16,7 @@ import { token } from '@/sanity/lib/token'
 import {
   HomePagePayload,
   NavigationPayload,
+  FooterPayload,
   PagePayload,
   ProjectPayload,
   SettingsPayload,
@@ -75,6 +77,14 @@ export function loadSettings() {
 export function loadNavbar() {
   return loadQuery<NavigationPayload>(
     globalNavigationQuery,
+    {},
+    { next: { tags: ['home', 'page', 'project'] } },
+  )
+}
+
+export function loadFooter() {
+  return loadQuery<FooterPayload>(
+    globalFooterQuery,
     {},
     { next: { tags: ['home', 'page', 'project'] } },
   )

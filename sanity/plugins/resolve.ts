@@ -27,6 +27,10 @@ export const locations = {
     message: 'This document is used to render the navigation',
     tone: 'positive',
   }),
+  footer: defineLocations({
+    message: 'This document is used to render the footer',
+    tone: 'positive',
+  }),
   home: defineLocations({
     message: 'This document is used to render the front page',
     tone: 'positive',

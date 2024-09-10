@@ -257,6 +257,7 @@ export interface HomePagePayload {
   who?: WhoSection
   what?: WhatSection
   how?: HowSection
+  outro?: OutroSection
   title?: string
 }
 
@@ -316,4 +317,70 @@ export interface NavigationPayload {
   }
   navItems: NavigationItem[]
   contactCTA: ContactCTA
+}
+
+export interface FooterLink {
+  text?: string
+  url?: string
+}
+
+export interface FooterLinkWithLogo extends FooterLink {
+  logo?: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }
+}
+
+export interface FooterPayload {
+  leftItems?: FooterLink[]
+  rightItems?: FooterLinkWithLogo[]
+}
+
+export interface OutroSection {
+  title?: string
+  cta_text?: string
+  cta_icon?: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }
+  partners_image?: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }
+  brand_images?: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }[]
 }
