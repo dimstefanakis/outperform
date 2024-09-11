@@ -104,6 +104,12 @@ const config = {
           '-moz-box-shadow': '0px 0px 30px -25px rgba(0,0,0,0.59)',
           'box-shadow': '0px 0px 30px -25px rgba(0,0,0,0.59)',
         },
+        '.full-opacity-to-transparent': {
+          'mask-image':
+            'linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))',
+          '-webkit-mask-image':
+            '-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))',
+        },
       }
       addUtilities(newUtilities, ['responsive', 'hover'])
     },
