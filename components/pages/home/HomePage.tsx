@@ -26,7 +26,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     who,
     what,
     how,
-    outro,
+    outroSection,
     title = '',
   } = data ?? {}
 
@@ -39,7 +39,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {who && <Who data={who} />}
       {what && <What data={what} />}
       {how && <How data={how} />}
-      {outro && <Outro data={outro} />}
+      {outroSection && <Outro data={outroSection} />}
       {/* Overview */}
       {/* Showcase projects */}
       {/*{showcaseProjects && showcaseProjects.length > 0 && (

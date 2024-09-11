@@ -257,7 +257,7 @@ export interface HomePagePayload {
   who?: WhoSection
   what?: WhatSection
   how?: HowSection
-  outro?: OutroSection
+  outroSection?: OutroSection
   title?: string
 }
 
