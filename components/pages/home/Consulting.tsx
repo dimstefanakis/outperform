@@ -37,7 +37,16 @@ export default function Consulting({ data }: { data: ConsultingSection }) {
     <div className="flex flex-col w-full mt-12">
       <div className="flex w-full flex-col">
         {data.title && (
-          <div className="text-black text-5xl font-bold mt-6">{data.title}</div>
+          <div className="text-black text-5xl font-bold mt-6 flex">
+            <ImageBox
+              image={data.icon}
+              height={data.icon?.asset.metadata.dimensions.height}
+              width={data.icon?.asset.metadata.dimensions.width}
+              alt={data.title}
+              classesWrapper="w-[40px] min-w-[40px] mr-2 object-contain rounded-none"
+            />
+            <span>{data.title}</span>
+          </div>
         )}
       </div>
       {isLaptop ? (
@@ -78,7 +87,7 @@ export default function Consulting({ data }: { data: ConsultingSection }) {
                 return (
                   <CarouselItem
                     key={index}
-                    className="flex flex-col lg:flex-row items-center justify-center basis-full md:basis-1/2 mt-6 px-4"
+                    className="flex flex-col lg:flex-row items-center justify-center basis-full md:basis-1/2 mt-6 pl-0 pr-2"
                   >
                     <div className="w-[100%] flex flex-col">
                       <ImageBox

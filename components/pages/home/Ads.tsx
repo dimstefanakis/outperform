@@ -7,9 +7,18 @@ export default function Ads({ data }: { data: AdsSection }) {
     <div className="flex flex-col w-full mt-12">
       <div className="flex w-full flex-col">
         {data.title && (
-          <div className="text-black text-5xl font-bold mb-6">{data.title}</div>
+          <div className="text-black text-5xl font-bold mt-6 flex">
+            <ImageBox
+              image={data.icon}
+              height={data.icon?.asset.metadata.dimensions.height}
+              width={data.icon?.asset.metadata.dimensions.width}
+              alt={data.title}
+              classesWrapper="w-[40px] min-w-[40px] mr-2 object-contain rounded-none"
+            />
+            <span>{data.title}</span>
+          </div>
         )}
-        <div className="flex flex-col md:flex-row w-full">
+        <div className="flex flex-col my-6 md:my-0 md:flex-row w-full">
           {data.ad_items?.map((item, index) => (
             <div
               key={index}
