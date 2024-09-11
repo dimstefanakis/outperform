@@ -27,7 +27,7 @@ export default function Footer(props: FooterProps) {
         {footer && footer.rightItems && (
           <div className="flex flex-row justify-end flex-1">
             {footer.rightItems.map((item, index) => (
-              <div key={index} className="mr-3">
+              <div key={index} className="ml-3">
                 <Link href={item.url ? item.url : ''}>
                   <ImageBox
                     image={item.logo}
