@@ -7,9 +7,7 @@ export default function Ads({ data }: { data: AdsSection }) {
     <div className="flex flex-col w-full mt-12">
       <div className="flex w-full flex-col">
         {data.title && (
-          <div className="text-black text-3xl font-bold  mb-6">
-            {data.title}
-          </div>
+          <div className="text-black text-5xl font-bold mb-6">{data.title}</div>
         )}
         <div className="flex flex-col md:flex-row w-full">
           {data.ad_items?.map((item, index) => (
@@ -30,7 +28,7 @@ export default function Ads({ data }: { data: AdsSection }) {
                     />
                   </div>
                   <div className="flex flex-col w-full m-0">
-                    <span className="text-xl font-bold text-left md:text-center text-gray-500 m-0">
+                    <span className="text-xl font-bold text-left md:text-center text-gray-500 md:text-black m-0">
                       {item.title}
                     </span>
                   </div>

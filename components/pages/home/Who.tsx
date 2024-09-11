@@ -25,8 +25,8 @@ export function Who({ data }: { data: WhoSection }) {
           </div>
         )}
         {data.title && (
-          <div className="w-1/3 mt-6">
-            <h1 className="text-4xl font-bold">{data.title}</h1>
+          <div className="w-full md:w-1/3 mt-6">
+            <h1 className="text-5xl md:text-7xl font-bold">{data.title}</h1>
           </div>
         )}
         {data.description && (

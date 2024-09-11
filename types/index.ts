@@ -297,7 +297,18 @@ export interface NavigationItem {
 
 export interface ContactCTA {
   text: string
-  icon: Image
+  icon: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }
   link: string
 }
 

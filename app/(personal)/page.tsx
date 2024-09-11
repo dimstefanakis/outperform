@@ -4,16 +4,17 @@ import Link from 'next/link'
 
 import { HomePage } from '@/components/pages/home/HomePage'
 import { studioUrl } from '@/sanity/lib/api'
-import { loadHomePage } from '@/sanity/loader/loadQuery'
+import { loadHomePage, loadNavbar } from '@/sanity/loader/loadQuery'
 const HomePagePreview = dynamic(
   () => import('@/components/pages/home/HomePagePreview'),
 )
 
 export default async function IndexRoute() {
   const initial = await loadHomePage()
+  const navbar = await loadNavbar()
 
   if (draftMode().isEnabled) {
-    return <HomePagePreview initial={initial} />
+    return <HomePagePreview initial={initial} navbarData={navbar} />
   }
 
   if (!initial.data) {
@@ -28,5 +29,5 @@ export default async function IndexRoute() {
     )
   }
 
-  return <HomePage data={initial.data} />
+  return <HomePage data={initial.data} navbarData={navbar.data} />
 }

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { Header } from '@/components/shared/Header'
 import { resolveHref } from '@/sanity/lib/utils'
-import type { HomePagePayload } from '@/types'
+import type { HomePagePayload, NavigationPayload } from '@/types'
 
 import { Hero } from './Hero'
 import { What } from './What'
@@ -14,10 +14,11 @@ import { Outro } from './Outro'
 
 export interface HomePageProps {
   data: HomePagePayload | null
+  navbarData: NavigationPayload | null
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
 
-export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
+export function HomePage({ data, navbarData }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const {
     overview = [],
@@ -35,7 +36,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   return (
     <div>
       {/* Hero */}
-      {hero && <Hero data={hero} />}
+      {hero && <Hero data={hero} navbarData={navbarData} />}
       {who && <Who data={who} />}
       {what && <What data={what} />}
       {how && <How data={how} />}

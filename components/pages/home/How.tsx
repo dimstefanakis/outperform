@@ -15,7 +15,9 @@ export function How({ data }: { data: HowSection }) {
           </div>
         )}
         {data.title && (
-          <div className="text-black text-4xl font-bold mt-6">{data.title}</div>
+          <div className="text-black text-5xl md:text-7xl font-bold mt-6">
+            {data.title}
+          </div>
         )}
         {data.description && (
           <p className="text-gray-500 text-lg mt-6 whitespace-break-spaces">

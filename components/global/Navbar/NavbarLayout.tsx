@@ -48,8 +48,8 @@ export default function Navbar(props: NavbarProps) {
         height: isSticky ? '70px' : '',
       }}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-4">
+      <div className="container mx-auto px-0 lg:px-4">
+        <div className="flex items-center justify-between py-4 relative">
           <div className="flex items-center">
             <ImageBox
               image={data?.logo}
@@ -60,7 +60,7 @@ export default function Navbar(props: NavbarProps) {
             />
           </div>
           {isLaptop ? (
-            <div className="flex items-center space-x-6">
+            <div className="flex justify-center items-center space-x-6 absolute left-0 w-full">
               {menuItems.map((menuItem, key) => {
                 const href = menuItem?.link
                 if (!href) {
@@ -82,6 +82,27 @@ export default function Navbar(props: NavbarProps) {
               <BurgerMenu menuItems={menuItems} />
             </div>
           )}
+          {isLaptop ? (
+            <Link
+              href={data.contactCTA.link || ''}
+              className="absolute right-0"
+            >
+              <div className="flex justify-center items-center">
+                <ImageBox
+                  image={data.contactCTA.icon}
+                  height={
+                    data.contactCTA.icon?.asset?.metadata?.dimensions?.height
+                  }
+                  width={
+                    data.contactCTA.icon?.asset?.metadata?.dimensions?.width
+                  }
+                  alt="Contact Icon"
+                  classesWrapper="w-[16px] mr-2 mb-1 object-contain rounded-none"
+                />
+                <span className="text-white">{data.contactCTA.text}</span>
+              </div>
+            </Link>
+          ) : null}
         </div>
       </div>
     </nav>
