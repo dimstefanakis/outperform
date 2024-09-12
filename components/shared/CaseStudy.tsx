@@ -25,10 +25,18 @@ export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
       <div className="grid my-10 md:grid-cols-2 gap-4">
         <div className="flex flex-col relative p-6 md:p-0">
           <div className="flex flex-col text-white mb-10 z-10">
+            <ImageBox
+              image={data?.clientImage}
+              height={data?.clientImage?.asset?.metadata?.dimensions?.height}
+              width={data?.clientImage?.asset?.metadata?.dimensions?.width}
+              alt="client image"
+              classesWrapper="h-12 mt-12 md:mt-0 mb-24 mx-auto md:mx-0"
+              imageClasses="object-contain h-full w-auto"
+            />
             <h1 className="text-4xl whitespace-break-spaces">
               {data?.studyTitle}
             </h1>
-            <span className="text-gray-500 mt-6 mb-12">
+            <span className="text-gray-500 mt-6 mb-24">
               {data?.studyDescription}
             </span>
           </div>
