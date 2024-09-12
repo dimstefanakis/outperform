@@ -20,10 +20,17 @@ export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
     (pillar) => pillar.rowSpan === 2,
   )
 
+  console.log('case study', data)
   return (
     <div>
-      <div className="grid my-10 md:grid-cols-2 gap-4">
-        <div className="flex flex-col relative p-6 md:p-0">
+      <div className="grid my-10 md:grid-cols-2 gap-20">
+        <div
+          className={`flex flex-col relative p-6 md:p-0`}
+          style={{
+            order:
+              data?.imagePosition === 'right' || !data?.imagePosition ? 1 : 2,
+          }}
+        >
           <div className="flex flex-col text-white mb-10 z-10">
             <ImageBox
               image={data?.clientImage}
@@ -41,7 +48,7 @@ export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
             </span>
           </div>
           <div
-            className={`grid grid-cols-2 z-10 ${hasFullHeightCarousel || hasFullHeightPillar ? 'md:grid-rows-2 lg:grid-flow-col' : ''} gap-4`}
+            className={`grid grid-cols-2 z-10 ${hasFullHeightCarousel || hasFullHeightPillar ? 'md:grid-rows-2 lg:grid-flow-col' : ''} gap-10`}
           >
             {data?.studyPillars?.map((pillar, index) => (
               <div
@@ -56,7 +63,7 @@ export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
                 </h3>
                 <Separator className="w-[50px] my-4 bg-white" />
                 {pillar.description && (
-                  <p className="text-lg max-w-full md:max-w-[80%] ml-0 md:ml-6 text-gray-500">
+                  <p className="text-md max-w-full ml-0 md:ml-6 text-gray-500">
                     {pillar.description}
                   </p>
                 )}
@@ -93,7 +100,9 @@ export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
               </div>
             ))}
           </div>
-          <div className="block absolute md:hidden top-0 left-0 w-full h-full z-[1]">
+          <div
+            className={`block absolute md:hidden top-0 left-0 w-full h-full z-[1]`}
+          >
             <ImageBox
               image={data?.image}
               height={data?.image?.asset?.metadata?.dimensions?.height}
@@ -104,7 +113,13 @@ export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
             />
           </div>
         </div>
-        <div className="hidden md:flex col-span-2 md:col-span-1 flex-col">
+        <div
+          className={`hidden md:flex col-span-2 md:col-span-1 flex-col`}
+          style={{
+            order:
+              data?.imagePosition === 'right' || !data?.imagePosition ? 2 : 1,
+          }}
+        >
           <ImageBox
             image={data?.image}
             height={data?.image?.asset?.metadata?.dimensions?.height}
