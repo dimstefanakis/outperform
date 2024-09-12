@@ -55,7 +55,7 @@ export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
                 key={index}
                 className={`
                   flex flex-col mb-6
-                  ${pillar.carousel || hasFullHeightPillar ? 'col-span-2 md:col-span-1 md:row-span-2' : `col-span-2 md:col-span-${pillar.columnSpan || 1}`}
+                  ${pillar.carousel || pillar.rowSpan === 2 ? 'col-span-2 md:col-span-1 md:row-span-2 order-10' : `col-span-2 md:col-span-${pillar.columnSpan || 1}`}
                 `}
               >
                 <h3 className="text-sm font-bold text-white uppercase">
