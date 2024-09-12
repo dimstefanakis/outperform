@@ -7,10 +7,10 @@ import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload, NavigationPayload } from '@/types'
 
 import { Hero } from './Hero'
-import { What } from './What'
-import { Who } from './Who'
 import { How } from './How'
 import { Outro } from './Outro'
+import { What } from './What'
+import { Who } from './Who'
 
 export interface HomePageProps {
   data: HomePagePayload | null

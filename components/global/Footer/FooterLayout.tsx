@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import type { PortableTextBlock } from 'next-sanity'
 
-import { Separator } from '@/components/ui/separator'
 import { CustomPortableText } from '@/components//shared/CustomPortableText'
-import type { SettingsPayload, FooterPayload } from '@/types'
 import ImageBox from '@/components/shared/ImageBox'
+import { Separator } from '@/components/ui/separator'
+import type { FooterPayload,SettingsPayload } from '@/types'
 
 interface FooterProps {
   data: FooterPayload

@@ -1,5 +1,9 @@
 'use client'
-import { useState, useEffect } from 'react'
+import Autoscroll from 'embla-carousel-auto-scroll'
+import useEmblaCarousel from 'embla-carousel-react'
+import { useEffect,useState } from 'react'
+
+import ImageBox from '@/components/shared/ImageBox'
 import {
   Carousel,
   CarouselContent,
@@ -8,9 +12,6 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import { type CarouselApi } from '@/components/ui/carousel'
-import useEmblaCarousel from 'embla-carousel-react'
-import Autoscroll from 'embla-carousel-auto-scroll'
-import ImageBox from '@/components/shared/ImageBox'
 import { OutroSection } from '@/types'
 
 export function Outro({ data }: { data: OutroSection }) {

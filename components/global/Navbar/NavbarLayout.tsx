@@ -2,8 +2,8 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-import ImageBox from '@/components/shared/ImageBox'
 import BurgerMenu from '@/components/shared/BurgerMenu'
+import ImageBox from '@/components/shared/ImageBox'
 import useMediaQuery from '@/hooks/useMediaQuery'
 import type { NavigationItem, NavigationPayload } from '@/types'
 

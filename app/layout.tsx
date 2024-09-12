@@ -1,7 +1,7 @@
 import './globals.css'
 
-import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
 import localFont from '@next/font/local'
+import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
 
 const serif = PT_Serif({
   variable: '--font-serif',

@@ -5,11 +5,11 @@ import {
 } from '@sanity/react-loader'
 import * as queryStore from '@sanity/react-loader'
 
-import { NavigationPayload, FooterPayload, SettingsPayload } from '@/types'
+import { FooterPayload, NavigationPayload, SettingsPayload } from '@/types'
 
 import {
-  globalNavigationQuery,
   globalFooterQuery,
+  globalNavigationQuery,
   settingsQuery,
 } from '../lib/queries'
 

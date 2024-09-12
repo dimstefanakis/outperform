@@ -1,6 +1,7 @@
 'use client'
-import { useState, useEffect } from 'react'
-import { ReportingSection } from '@/types'
+import { useEffect,useState } from 'react'
+
+import ImageBox from '@/components/shared/ImageBox'
 import {
   Carousel,
   CarouselContent,
@@ -8,10 +9,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import { Separator } from '@/components/ui/separator'
 import { type CarouselApi } from '@/components/ui/carousel'
-import ImageBox from '@/components/shared/ImageBox'
+import { Separator } from '@/components/ui/separator'
 import useMediaQuery from '@/hooks/useMediaQuery'
+import { ReportingSection } from '@/types'
 
 export default function Reporting({ data }: { data: ReportingSection }) {
   const [api, setApi] = useState<CarouselApi>()

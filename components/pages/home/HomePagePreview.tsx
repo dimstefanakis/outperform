@@ -2,7 +2,7 @@
 
 import { type QueryResponseInitial } from '@sanity/react-loader'
 
-import { homePageQuery, globalNavigationQuery } from '@/sanity/lib/queries'
+import { globalNavigationQuery,homePageQuery } from '@/sanity/lib/queries'
 import { useQuery } from '@/sanity/loader/useQuery'
 import { HomePagePayload, NavigationPayload } from '@/types'
 

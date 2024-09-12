@@ -1,7 +1,8 @@
-import Ads from './Ads'
-import Reporting from './Reporting'
-import Consulting from './Consulting'
 import { HowSection } from '@/types'
+
+import Ads from './Ads'
+import Consulting from './Consulting'
+import Reporting from './Reporting'
 
 export function How({ data }: { data: HowSection }) {
   return (

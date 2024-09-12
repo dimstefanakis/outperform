@@ -5,8 +5,8 @@ import { draftMode } from 'next/headers'
 
 import { client } from '@/sanity/lib/client'
 import {
-  globalNavigationQuery,
   globalFooterQuery,
+  globalNavigationQuery,
   homePageQuery,
   pagesBySlugQuery,
   projectBySlugQuery,
@@ -14,9 +14,9 @@ import {
 } from '@/sanity/lib/queries'
 import { token } from '@/sanity/lib/token'
 import {
+  FooterPayload,
   HomePagePayload,
   NavigationPayload,
-  FooterPayload,
   PagePayload,
   ProjectPayload,
   SettingsPayload,
