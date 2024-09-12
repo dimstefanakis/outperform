@@ -3,7 +3,18 @@ import type { Image } from 'sanity'
 
 export interface Client {
   clientName?: string
-  clientImages?: Image[]
+  clientImages?: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }[]
 }
 
 export interface CarouselItem {
@@ -20,11 +31,33 @@ export interface StudyPillar {
 }
 
 export interface CaseStudy {
-  clientImage?: Image
+  clientImage?: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }
   imagePosition?: 'right' | 'left'
   studyTitle?: string
   studyDescription?: string
-  image?: Image
+  image?: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }
   studyPillars?: StudyPillar[]
 }
 

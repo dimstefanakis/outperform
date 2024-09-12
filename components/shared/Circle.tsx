@@ -10,6 +10,7 @@ export function Circle({ data }: { data: CircleInterface }) {
         <p className="text-sm text-center p-4">{data.description}</p>
       </div>
       <div className="mt-4 text-center text-sm">
+        {/* @ts-ignore */}
         <CustomPortableText value={data.outsideDescription} />
       </div>
     </div>
