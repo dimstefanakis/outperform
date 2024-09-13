@@ -4,7 +4,7 @@ import type { PortableTextBlock } from 'next-sanity'
 import { CustomPortableText } from '@/components//shared/CustomPortableText'
 import ImageBox from '@/components/shared/ImageBox'
 import { Separator } from '@/components/ui/separator'
-import type { FooterPayload,SettingsPayload } from '@/types'
+import type { FooterPayload, SettingsPayload } from '@/types'
 
 interface FooterProps {
   data: FooterPayload
@@ -34,7 +34,7 @@ export default function Footer(props: FooterProps) {
                     alt={item.text || ''}
                     width={item.logo?.asset.metadata.dimensions.width}
                     height={item.logo?.asset.metadata.dimensions.height}
-                    imageClasses="w-10 h-10"
+                    imageClasses="w-10 h-10 object-contain"
                   />
                 </Link>
               </div>
