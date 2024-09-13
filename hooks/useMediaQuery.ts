@@ -1,9 +1,9 @@
-import { useEffect,useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 
 const useMediaQuery = (query) => {
   const [matches, setMatches] = useState(false)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const media = window.matchMedia(query)
     if (media.matches !== matches) {
       setMatches(media.matches)

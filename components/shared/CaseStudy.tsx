@@ -1,5 +1,5 @@
 'use client'
-
+import { useState, useEffect } from 'react'
 import {
   Carousel,
   CarouselContent,
@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/carousel'
 import { Separator } from '@/components/ui/separator'
 import { CaseStudy as CaseStudyInterface } from '@/types'
+import { type CarouselApi } from '@/components/ui/carousel'
 import useMediaQuery from '@/hooks/useMediaQuery'
 
 import ImageBox from './ImageBox'
@@ -21,6 +22,9 @@ export default function CaseStudy({
   isLast: boolean
 }) {
   const isLaptop = useMediaQuery('(min-width: 1024px)')
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
+  const [count, setCount] = useState(0)
 
   const hasFullHeightCarousel = data?.studyPillars?.some(
     (pillar) => pillar.carousel,
@@ -54,6 +58,19 @@ export default function CaseStudy({
       }
     }
   }
+
+  useEffect(() => {
+    if (!api) {
+      return
+    }
+
+    setCount(api.scrollSnapList().length)
+    setCurrent(api.selectedScrollSnap() + 1)
+
+    api.on('select', () => {
+      setCurrent(api.selectedScrollSnap() + 1)
+    })
+  }, [api])
 
   return (
     <div>
@@ -111,6 +128,7 @@ export default function CaseStudy({
 
                 {pillar.carousel && (
                   <Carousel
+                    setApi={setApi}
                     className={pillar.carousel ? 'flex-1 mt-6 px-4' : ''}
                   >
                     <CarouselContent
@@ -137,6 +155,16 @@ export default function CaseStudy({
                     </CarouselContent>
                     <CarouselPrevious className="left-0" />
                     <CarouselNext className="right-0" />
+                    <div className="w-full flex items-center justify-center mt-4">
+                      <div className="w-full mx-4 bg-gray-500 h-[2px] relative">
+                        <Separator
+                          className={`w-full h-[2px] bg-blue-500 transition-all duration-300 ease-in-out`}
+                          style={{
+                            width: `${(current / count) * 100}%`,
+                          }}
+                        />
+                      </div>
+                    </div>
                   </Carousel>
                 )}
               </div>
