@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Menu, MessageSquare,X } from 'lucide-react'
+import { Menu, MessageSquare, X } from 'lucide-react'
 import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -11,8 +11,10 @@ import type { NavigationItem, NavigationPayload } from '@/types'
 
 export default function BurgerMenu({
   menuItems,
+  logo,
 }: {
   menuItems: NavigationItem[]
+  logo: NavigationPayload['logo']
 }) {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -31,7 +33,11 @@ export default function BurgerMenu({
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="z-50">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="z-50 bg-transparent hover:bg-transparent"
+        >
           <Menu className="h-6 w-6" color="white" />
           <span className="sr-only">Open menu</span>
         </Button>

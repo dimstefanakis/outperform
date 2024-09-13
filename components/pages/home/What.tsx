@@ -28,7 +28,11 @@ export function What({ data }: { data: WhatSection }) {
         {data.caseStudies && (
           <div className="flex flex-col">
             {data.caseStudies.map((caseStudy, index) => (
-              <CaseStudy key={index} data={caseStudy} />
+              <CaseStudy
+                key={index}
+                data={caseStudy}
+                isLast={index === (data.caseStudies?.length || 0) - 1}
+              />
             ))}
           </div>
         )}

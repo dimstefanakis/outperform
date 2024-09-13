@@ -21,7 +21,7 @@ export default function Navbar(props: NavbarProps) {
     const handleScroll = () => {
       const heroSection = document.querySelector('.hero-section')
       if (heroSection) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom
+        const heroBottom = heroSection.getBoundingClientRect().bottom - 50
         setIsSticky(heroBottom <= 0)
       }
     }
@@ -79,7 +79,7 @@ export default function Navbar(props: NavbarProps) {
             </div>
           ) : (
             <div className="flex w-full justify-end">
-              <BurgerMenu menuItems={menuItems} />
+              <BurgerMenu menuItems={menuItems} logo={data.logo} />
             </div>
           )}
           {isLaptop ? (

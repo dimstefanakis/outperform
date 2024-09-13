@@ -1,4 +1,4 @@
-import React from 'react'
+'use client'
 
 import {
   Carousel,
@@ -9,10 +9,19 @@ import {
 } from '@/components/ui/carousel'
 import { Separator } from '@/components/ui/separator'
 import { CaseStudy as CaseStudyInterface } from '@/types'
+import useMediaQuery from '@/hooks/useMediaQuery'
 
 import ImageBox from './ImageBox'
 
-export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
+export default function CaseStudy({
+  data,
+  isLast,
+}: {
+  data: CaseStudyInterface
+  isLast: boolean
+}) {
+  const isLaptop = useMediaQuery('(min-width: 1024px)')
+
   const hasFullHeightCarousel = data?.studyPillars?.some(
     (pillar) => pillar.carousel,
   )
@@ -20,7 +29,32 @@ export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
     (pillar) => pillar.rowSpan === 2,
   )
 
-  console.log('case study', data)
+  function applyBorderBottom(index: number) {
+    if (isLaptop) {
+      // If there is a carousel or a full height pillar, we need to apply border bottom to the first element
+      if (hasFullHeightCarousel || hasFullHeightPillar) {
+        return index === 0 ? 'border-b-[1px]' : ''
+      }
+      // If there is no carousel or full height pillar, we need to apply border bottom to all elements except the last one
+      else if (
+        data?.studyPillars?.length &&
+        index === data?.studyPillars.length - 1
+      ) {
+        return ''
+      }
+      return 'border-b-[1px]'
+    } else {
+      if (
+        data?.studyPillars?.length &&
+        index === data?.studyPillars.length - 1
+      ) {
+        return ''
+      } else {
+        return 'border-b-[1px]'
+      }
+    }
+  }
+
   return (
     <div>
       <div className="grid my-10 md:grid-cols-2 gap-20">
@@ -37,7 +71,7 @@ export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
               height={data?.clientImage?.asset?.metadata?.dimensions?.height}
               width={data?.clientImage?.asset?.metadata?.dimensions?.width}
               alt="client image"
-              classesWrapper="h-12 mt-12 md:mt-0 mb-24 mx-auto md:mx-0"
+              classesWrapper="h-12 mt-12 md:mt-0 mb-24 mx-auto md:mr-auto md:mx-0"
               imageClasses="object-contain h-full w-auto"
             />
             <h1 className="text-4xl whitespace-break-spaces">
@@ -48,15 +82,22 @@ export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
             </span>
           </div>
           <div
-            className={`grid grid-cols-2 z-10 ${hasFullHeightCarousel || hasFullHeightPillar ? 'md:grid-rows-2 lg:grid-flow-col' : ''} gap-10`}
+            className={`grid grid-cols-2 z-10 ${hasFullHeightCarousel || hasFullHeightPillar ? 'md:grid-rows-2 lg:grid-flow-col' : ''} gap-0`}
           >
             {data?.studyPillars?.map((pillar, index) => (
               <div
                 key={index}
                 className={`
-                  flex flex-col mb-6
-                  ${pillar.carousel || pillar.rowSpan === 2 ? 'col-span-2 md:col-span-1 md:row-span-2 order-10' : `col-span-2 md:col-span-${pillar.columnSpan || 1}`}
+                  flex flex-col p-8 border-gray-500
+                  ${pillar.carousel || pillar.rowSpan === 2 ? 'col-span-2 md:col-span-1 md:row-span-2 order-10 md:border-l-[1px] border-gray-500' : `col-span-2 md:col-span-${pillar.columnSpan || 1} ${applyBorderBottom(index)} border-gray-500`}
                 `}
+                style={
+                  !isLaptop
+                    ? {
+                        borderLeftWidth: '1px',
+                      }
+                    : {}
+                }
               >
                 <h3 className="text-sm font-bold text-white uppercase">
                   {pillar.title}
@@ -67,6 +108,7 @@ export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
                     {pillar.description}
                   </p>
                 )}
+
                 {pillar.carousel && (
                   <Carousel
                     className={pillar.carousel ? 'flex-1 mt-6 px-4' : ''}
@@ -129,7 +171,7 @@ export default function CaseStudy({ data }: { data: CaseStudyInterface }) {
           />
         </div>
       </div>
-      <Separator className="w-full my-10 bg-gray-500" />
+      {!isLast && <Separator className="w-full my-10 bg-gray-500" />}
     </div>
   )
 }

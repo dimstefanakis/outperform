@@ -1,5 +1,5 @@
 'use client'
-import { useEffect,useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Circle } from '@/components/shared/Circle'
 import {
@@ -35,7 +35,7 @@ export function WhoCarousel({ data }: { data: WhoSection }) {
   }, [api])
 
   return isLaptop ? (
-    <div className="flex w-full">
+    <div className="flex w-full my-12">
       {data.circles.map((circle, index) => {
         return (
           <div
@@ -51,7 +51,7 @@ export function WhoCarousel({ data }: { data: WhoSection }) {
     </div>
   ) : (
     data.circles && (
-      <Carousel setApi={setApi} className="w-full md:max-w-full">
+      <Carousel setApi={setApi} className="w-full md:max-w-full my-12">
         <CarouselContent className="items-start">
           {data.circles.map((circle, index) => {
             return (

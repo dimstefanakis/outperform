@@ -35,7 +35,9 @@ export function Who({ data }: { data: WhoSection }) {
               <Separator />
             </div>
             <div className="w-2/3">
-              <p>{data.description}</p>
+              <p className="text-gray-500 lg:max-w-[300px]">
+                {data.description}
+              </p>
             </div>
           </div>
         )}
