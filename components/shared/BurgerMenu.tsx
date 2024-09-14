@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import type { NavigationItem, NavigationPayload } from '@/types'
+import ImageBox from './ImageBox'
 
 export default function BurgerMenu({
   menuItems,
@@ -42,9 +43,18 @@ export default function BurgerMenu({
           <span className="sr-only">Open menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+      <SheetContent
+        side="left"
+        className="w-[300px] sm:w-[400px] bg-[#242424] border-0 text-white"
+      >
         <div className="flex justify-between items-center mb-6">
-          <div className="font-bold text-2xl">Logo</div>
+          <ImageBox
+            image={logo}
+            alt={'Outperform logo'}
+            width={logo?.asset.metadata.dimensions.width}
+            height={logo?.asset.metadata.dimensions.height}
+            imageClasses="h-4 object-contain"
+          />
           <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
             <span className="sr-only">Close menu</span>
           </Button>
@@ -71,7 +81,7 @@ export default function BurgerMenu({
             ))}
           </ul>
         </nav>
-        <Separator className="my-6" />
+        <Separator className="my-6 bg-[#ABABAB]" />
         <motion.div
           variants={menuItemVariants}
           initial="hidden"
@@ -83,7 +93,7 @@ export default function BurgerMenu({
             className="flex items-center py-2 text-lg hover:text-primary transition-colors"
             onClick={() => setIsOpen(false)}
           >
-            <MessageSquare className="mr-2 h-5 w-5" />
+            {/*<MessageSquare className="mr-2 h-5 w-5" />*/}
             Drop us a line
           </a>
         </motion.div>
