@@ -35,6 +35,9 @@ export default function Footer(props: FooterProps) {
                     width={item.logo?.asset.metadata.dimensions.width}
                     height={item.logo?.asset.metadata.dimensions.height}
                     imageClasses="w-10 h-10 object-contain"
+                    imagesStyles={{
+                      width: 'auto',
+                    }}
                   />
                 </Link>
               </div>

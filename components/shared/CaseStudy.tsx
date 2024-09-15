@@ -88,7 +88,7 @@ export default function CaseStudy({
               height={data?.clientImage?.asset?.metadata?.dimensions?.height}
               width={data?.clientImage?.asset?.metadata?.dimensions?.width}
               alt="client image"
-              classesWrapper="h-12 mt-12 md:mt-0 mb-24 mx-auto md:mr-auto md:mx-0"
+              classesWrapper="h-12 mt-12 md:mt-0 mb-24 mx-auto md:mr-auto md:mx-0 min-w-[300px]"
               imageClasses="object-contain h-full w-auto"
             />
             <h1 className="text-4xl whitespace-break-spaces">
@@ -129,7 +129,7 @@ export default function CaseStudy({
                 {pillar.carousel && (
                   <Carousel
                     setApi={setApi}
-                    className={pillar.carousel ? 'flex-1 mt-6 px-4' : ''}
+                    className={pillar.carousel ? 'flex-1 mt-6 md:px-4' : ''}
                   >
                     <CarouselContent
                       className={pillar.carousel ? 'h-full ml-0' : ''}
@@ -138,7 +138,9 @@ export default function CaseStudy({
                         <CarouselItem
                           key={index}
                           className={
-                            pillar.carousel ? 'h-full w-[100%]  px-2  ' : ''
+                            pillar.carousel
+                              ? `h-full w-[100%] pl-0 md:pl-4 ${index !== 0 ? 'px-2' : ''} md:px-2`
+                              : ''
                           }
                         >
                           <div className="flex flex-col bg-[#242424] rounded-lg p-4 h-full">
@@ -153,8 +155,8 @@ export default function CaseStudy({
                         </CarouselItem>
                       ))}
                     </CarouselContent>
-                    <CarouselPrevious className="left-0" />
-                    <CarouselNext className="right-0" />
+                    <CarouselPrevious className="md:left-0 left-[-25px]" />
+                    <CarouselNext className="md:right-0 right-[-25px]" />
                     <div className="w-full flex items-center justify-center mt-4">
                       <div className="w-full mx-4 bg-gray-500 h-[2px] relative">
                         <Separator

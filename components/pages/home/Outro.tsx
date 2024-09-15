@@ -1,7 +1,7 @@
 'use client'
 import Autoscroll from 'embla-carousel-auto-scroll'
 import useEmblaCarousel from 'embla-carousel-react'
-import { useEffect,useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import ImageBox from '@/components/shared/ImageBox'
 import {
@@ -34,7 +34,7 @@ export function Outro({ data }: { data: OutroSection }) {
   }, [api])
 
   return (
-    <div className="w-full flex flex-col items-center justify-center my-24">
+    <div className="w-full flex flex-col items-center justify-center mt-14 mb-20">
       <h1 className="text-8xl md:text-9xl font-bold text-center w-full md:w-[70%]">
         {data.title}
       </h1>
@@ -57,7 +57,7 @@ export function Outro({ data }: { data: OutroSection }) {
           height={data.partners_image?.asset.metadata.dimensions.height}
           width={data.partners_image?.asset.metadata.dimensions.width}
           alt={'Outro Image'}
-          classesWrapper="w-full mt-8"
+          classesWrapper="w-full mt-24"
           imageClasses="rounded-2xl"
         />
       </div>

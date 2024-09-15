@@ -4,10 +4,10 @@ import { AdsSection } from '@/types'
 
 export default function Ads({ data }: { data: AdsSection }) {
   return (
-    <div className="flex flex-col w-full mt-12">
+    <div className="flex flex-col w-full my-20">
       <div className="flex w-full flex-col">
         {data.title && (
-          <div className="text-black text-4xl md:text-5xl font-bold mt-6 flex">
+          <div className="text-black text-4xl md:text-5xl font-bold mt-6 mb-10 flex">
             <ImageBox
               image={data.icon}
               height={data.icon?.asset.metadata.dimensions.height}

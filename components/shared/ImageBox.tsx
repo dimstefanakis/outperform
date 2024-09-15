@@ -11,6 +11,7 @@ interface ImageBoxProps {
   classesWrapper?: string
   imageClasses?: string
   'data-sanity'?: string
+  imagesStyles?: any
 }
 
 export default function ImageBox({
@@ -21,6 +22,7 @@ export default function ImageBox({
   size = '100vw',
   classesWrapper,
   imageClasses,
+  imagesStyles = {},
   ...props
 }: ImageBoxProps) {
   const imageUrl =
@@ -39,6 +41,7 @@ export default function ImageBox({
           height={height}
           sizes={size}
           src={imageUrl}
+          style={imagesStyles}
         />
       )}
     </div>
