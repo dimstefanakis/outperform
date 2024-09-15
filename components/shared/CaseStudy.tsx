@@ -88,8 +88,11 @@ export default function CaseStudy({
               height={data?.clientImage?.asset?.metadata?.dimensions?.height}
               width={data?.clientImage?.asset?.metadata?.dimensions?.width}
               alt="client image"
-              classesWrapper="h-12 mt-12 md:mt-0 mb-24 mx-auto md:mr-auto md:mx-0 min-w-[300px]"
+              classesWrapper="h-12 mt-12 md:mt-0 mb-24 flex justify-center md:justify-start mx-auto md:mr-auto md:mx-0 min-w-[300px]"
               imageClasses="object-contain h-full w-auto"
+              imagesStyles={{
+                width: 'auto',
+              }}
             />
             <h1 className="text-4xl whitespace-break-spaces">
               {data?.studyTitle}
