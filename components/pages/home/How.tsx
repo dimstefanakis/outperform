@@ -1,3 +1,4 @@
+import { Separator } from '@/components/ui/separator'
 import { HowSection } from '@/types'
 
 import Ads from './Ads'
@@ -6,13 +7,14 @@ import Reporting from './Reporting'
 
 export function How({ data }: { data: HowSection }) {
   return (
-    <div id="how" className="w-full mt-24 px-0 md:px-3 lg:px-3">
+    <div id="how" className="w-full mt-16 md:mt-24 px-0 md:px-3 lg:px-3">
       <div className="flex w-full flex-col py-10 px-4 lg:px-10 rounded-0 md:rounded-[50px]">
         {data.header && (
           <div>
             <span className="text-md font-bold text-blue-500">
               {data.header}
             </span>
+            <Separator className="bg-blue-500 w-[20px]" />
           </div>
         )}
         {data.title && (
@@ -21,7 +23,7 @@ export function How({ data }: { data: HowSection }) {
           </div>
         )}
         {data.description && (
-          <p className="text-gray-500 text-lg mt-6 whitespace-break-spaces">
+          <p className="text-gray-500 text-lg mt-4 whitespace-break-spaces">
             {data.description}
           </p>
         )}

@@ -35,7 +35,7 @@ export default function Consulting({ data }: { data: ConsultingSection }) {
   }, [api])
 
   return (
-    <div className="flex flex-col w-full my-20">
+    <div className="flex flex-col w-full my-10 md:my-20">
       <div className="flex w-full flex-col">
         {data.title && (
           <div className="text-black text-4xl md:text-5xl font-bold mt-6 mb-10 flex">
@@ -110,10 +110,10 @@ export default function Consulting({ data }: { data: ConsultingSection }) {
                 )
               })}
             </CarouselContent>
-            <div className="w-full flex items-center justify-center my-20">
-              <div className="w-full mx-4 md:max-w-[200px] bg-gray-50 block md:hidden h-[2px] relative">
+            <div className="w-full flex items-center justify-center my-6 md:my-20">
+              <div className="w-full md:max-w-[200px] bg-gray-50 block md:hidden h-[2px] relative">
                 <Separator
-                  className={`w-full h-[2px] bg-blue-500 transition-all duration-300 ease-in-out`}
+                  className={`w-full h-[2px] bg-blue-500 transition-all duration-300 ease-in-out mx-0`}
                   style={{
                     width: `${(current / count) * 100}%`,
                   }}

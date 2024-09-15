@@ -35,7 +35,7 @@ export function Outro({ data }: { data: OutroSection }) {
 
   return (
     <div className="w-full flex flex-col items-center justify-center mt-14 mb-20">
-      <h1 className="text-8xl md:text-9xl font-bold text-center w-full md:w-[70%]">
+      <h1 className="text-7xl md:text-9xl font-bold text-center w-full md:w-[70%]">
         {data.title}
       </h1>
       <div className="flex justify-center items-center cursor-pointer px-8 py-3 mt-4 rounded-full border-2 border-blue-500">
