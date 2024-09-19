@@ -56,7 +56,7 @@ export default function Navbar(props: NavbarProps) {
               height={data?.logo?.asset?.metadata?.dimensions?.height}
               width={data?.logo?.asset?.metadata?.dimensions?.width}
               alt="Logo"
-              classesWrapper="w-[80px] object-contain relative"
+              classesWrapper="w-[160px] object-contain relative"
             />
           </div>
           {isLaptop ? (
@@ -69,7 +69,7 @@ export default function Navbar(props: NavbarProps) {
                 return (
                   <Link
                     key={key}
-                    className={`text-lg transition-colors duration-200 ${isSticky ? 'text-white' : 'text-white'}`}
+                    className={`text-xl transition-colors duration-200 ${isSticky ? 'text-white' : 'text-white'}`}
                     href={href}
                   >
                     {menuItem.label}
