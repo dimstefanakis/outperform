@@ -21,7 +21,7 @@ export function Who({ data }: { data: WhoSection }) {
             <span className="text-md font-bold text-blue-500">
               {data.header}
             </span>
-            <Separator className="bg-blue-500 w-[20px]" />
+            <Separator className="bg-blue-500 h-[2px] w-[30px]" />
           </div>
         )}
         {data.title && (

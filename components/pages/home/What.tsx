@@ -11,7 +11,7 @@ export function What({ data }: { data: WhatSection }) {
             <span className="text-md font-bold text-blue-500">
               {data.title}
             </span>
-            <Separator className="bg-blue-500 w-[20px]" />
+            <Separator className="bg-blue-500 h-[2px] w-[30px]" />
           </div>
         )}
         {data.header && (
