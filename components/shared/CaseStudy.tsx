@@ -161,7 +161,7 @@ export default function CaseStudy({
                     <CarouselPrevious className="md:left-0 left-[0px]" />
                     <CarouselNext className="md:right-0 right-[-25px]" />
                     <div className="w-full flex items-center justify-center mt-4">
-                      <div className="w-full mx-4 bg-gray-500 h-[2px] relative">
+                      <div className="w-full mx-6 mr-0 bg-gray-500 h-[2px] md:mx-2 relative">
                         <Separator
                           className={`w-full h-[2px] bg-blue-500 transition-all duration-300 ease-in-out`}
                           style={{
