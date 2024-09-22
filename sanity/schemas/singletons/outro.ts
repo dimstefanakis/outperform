@@ -1,4 +1,4 @@
-import { defineArrayMember,defineField, defineType } from 'sanity'
+import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'outroSection',
@@ -16,6 +16,12 @@ export default defineType({
       title: 'CTA Text',
       type: 'string',
       description: 'The text for the call-to-action button',
+    }),
+    defineField({
+      name: 'cta_link',
+      title: 'CTA Link',
+      type: 'string',
+      description: 'The link for the call-to-action button',
     }),
     defineField({
       name: 'cta_icon',

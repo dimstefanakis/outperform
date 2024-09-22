@@ -186,6 +186,7 @@ export const homePageQuery = groq`
     outroSection->{
       title,
       cta_text,
+      cta_link,
       cta_icon {
         asset-> {
           url,

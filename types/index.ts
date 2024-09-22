@@ -391,6 +391,7 @@ export interface FooterPayload {
 export interface OutroSection {
   title?: string
   cta_text?: string
+  cta_link?: string
   cta_icon?: {
     asset: {
       url: string
