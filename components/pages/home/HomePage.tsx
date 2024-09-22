@@ -31,8 +31,6 @@ export function HomePage({ data, navbarData }: HomePageProps) {
     title = '',
   } = data ?? {}
 
-  console.log('data', data)
-
   return (
     <div>
       {/* Hero */}
