@@ -1,4 +1,6 @@
 import './globals.css'
+import Script from 'next/script'
+import Head from 'next/head'
 import { Analytics } from '@vercel/analytics/react'
 import localFont from '@next/font/local'
 import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
@@ -54,8 +56,53 @@ export default async function RootLayout({
       lang="en"
       className={`${cfdromon.variable} ${mono.variable} ${sans.variable} ${serif.variable}`}
     >
-      <body>{children}</body>
-      <Analytics />
+      <head>
+        <Script
+          id="fb-pixel"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1569097794014662');
+            fbq('track', 'PageView');
+            `,
+          }}
+        />
+        <Script
+          id="reddit-pixel"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            !function(w,d){
+              if(!w.rdt){
+                var p=w.rdt=function(){
+                  p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)
+                };
+                p.callQueue=[];
+                var t=d.createElement("script");
+                t.src="https://www.redditstatic.com/ads/pixel.js";
+                t.async=!0;
+                var s=d.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(t,s)
+              }
+            }(window,document);
+            rdt('init', 'a2_f5c1knlyv1bx');
+            rdt('track', 'PageVisit');
+            `,
+          }}
+        />
+      </head>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   )
 }
