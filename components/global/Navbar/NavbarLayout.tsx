@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 
 import BurgerMenu from '@/components/shared/BurgerMenu'
 import ImageBox from '@/components/shared/ImageBox'
+import AuditForm from '@/components/AuditForm'
 import useMediaQuery from '@/hooks/useMediaQuery'
 import type { NavigationItem, NavigationPayload } from '@/types'
 
@@ -12,6 +13,7 @@ interface NavbarProps {
 }
 
 export default function Navbar(props: NavbarProps) {
+  const [isAuditFormOpen, setIsAuditFormOpen] = useState(false)
   const { data } = props
   const menuItems = data?.navItems || ([] as NavigationItem[])
   const [isSticky, setIsSticky] = useState(false)
@@ -83,28 +85,42 @@ export default function Navbar(props: NavbarProps) {
             </div>
           )}
           {isLaptop ? (
-            <Link
-              href={data.contactCTA.link || ''}
-              className="absolute right-0"
-            >
-              <div className="flex justify-center items-center">
+            <div className="absolute right-0 flex">
+              <Link
+                href={data.contactCTA.link || ''}
+              >
+                <div className="flex justify-center items-center">
+                  <ImageBox
+                    image={data.contactCTA.icon}
+                    height={
+                      data.contactCTA.icon?.asset?.metadata?.dimensions?.height
+                    }
+                    width={
+                      data.contactCTA.icon?.asset?.metadata?.dimensions?.width
+                    }
+                    alt="Contact Icon"
+                    classesWrapper="w-[16px] mr-2 mb-1 object-contain rounded-none"
+                  />
+                  <span className="text-white">{data.contactCTA.text}</span>
+                </div>
+              </Link>
+              <div className="flex justify-center items-center ml-4 cursor-pointer"
+                onClick={() => setIsAuditFormOpen(true)}
+              >
                 <ImageBox
-                  image={data.contactCTA.icon}
-                  height={
-                    data.contactCTA.icon?.asset?.metadata?.dimensions?.height
-                  }
-                  width={
-                    data.contactCTA.icon?.asset?.metadata?.dimensions?.width
-                  }
-                  alt="Contact Icon"
+                  image={data.auditCTA?.icon}
+                  height={data.auditCTA?.icon?.asset?.metadata?.dimensions?.height}
+                  width={data.auditCTA?.icon?.asset?.metadata?.dimensions?.width}
+                  alt="Audit Icon"
                   classesWrapper="w-[16px] mr-2 mb-1 object-contain rounded-none"
                 />
-                <span className="text-white">{data.contactCTA.text}</span>
+                <span className="text-white">{data.auditCTA?.text}</span>
               </div>
-            </Link>
+            </div>
           ) : null}
         </div>
       </div>
+      <AuditForm isOpen={isAuditFormOpen} onClose={() => setIsAuditFormOpen(false)} logo={data.logo} />
     </nav>
   )
 }

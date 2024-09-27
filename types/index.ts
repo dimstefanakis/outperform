@@ -345,6 +345,22 @@ export interface ContactCTA {
   link: string
 }
 
+export interface AuditCTA {
+  text: string
+  icon: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }
+}
+
 export interface NavigationPayload {
   title?: string
   logo?: {
@@ -361,6 +377,7 @@ export interface NavigationPayload {
   }
   navItems: NavigationItem[]
   contactCTA: ContactCTA
+  auditCTA: AuditCTA
 }
 
 export interface FooterLink {
