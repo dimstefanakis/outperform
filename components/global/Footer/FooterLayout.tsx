@@ -13,7 +13,7 @@ export default function Footer(props: FooterProps) {
   const { data } = props
   const footer = data
   return (
-    <footer className="bottom-0 w-full flex justify-center items-center bg-white text-center ">
+    <footer className="bottom-0 w-full flex justify-center items-center bg-[#F6F6F6] text-center ">
       <div className="w-full text-gray-500 max-w-[90%] border-t border-gray-200 py-3 md:py-3 flex">
         {footer && footer.leftItems && (
           <div className="flex flex-col md:flex-row items-start md:items-center justify-center">

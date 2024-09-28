@@ -3,7 +3,7 @@ import type { Image } from 'sanity'
 
 export interface Client {
   clientName?: string
-  clientImages?: {
+  clientImage?: {
     asset: {
       url: string
       metadata: {
@@ -14,7 +14,7 @@ export interface Client {
         }
       }
     }
-  }[]
+  }
 }
 
 export interface CarouselItem {

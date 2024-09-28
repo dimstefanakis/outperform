@@ -97,9 +97,11 @@ export default function CaseStudy({
             <h1 className="text-4xl whitespace-break-spaces">
               {data?.studyTitle}
             </h1>
-            <span className="text-gray-500 text-xl mt-6 mb-24">
-              {data?.studyDescription}
-            </span>
+            {isLaptop && (
+              <span className="text-gray-500 text-xl mt-6 mb-24">
+                {data?.studyDescription}
+              </span>
+            )}
           </div>
           <div
             className={`grid grid-cols-2 z-10 ${hasFullHeightCarousel || hasFullHeightPillar ? 'md:grid-rows-2 lg:grid-flow-col' : ''} gap-0`}
@@ -108,7 +110,7 @@ export default function CaseStudy({
               <div
                 key={index}
                 className={`
-                  flex flex-col pr-0 md:pr-8 p-8 border-gray-500
+                  flex flex-col pr-0 md:pr-8 p-8 ${index == 0 && !isLaptop ? 'pt-0' : ''} border-gray-500
                   ${pillar.carousel || pillar.rowSpan === 2 ? 'col-span-2 md:col-span-1 md:row-span-2 order-10 md:border-l-[1px] border-gray-500' : `col-span-2 md:col-span-${pillar.columnSpan || 1} ${applyBorderBottom(index)} border-gray-500`}
                 `}
                 style={
@@ -119,7 +121,12 @@ export default function CaseStudy({
                     : {}
                 }
               >
-                <h3 className="text-sm font-bold text-white uppercase">
+                {!isLaptop && index == 0 && (
+                  <span className="text-gray-500 text-xl mt-0 mb-12">
+                    {data?.studyDescription}
+                  </span>
+                )}
+                <h3 className="text-lg font-bold text-white whitespace-break-spaces uppercase">
                   {pillar.title}
                 </h3>
                 <Separator className="w-[50px] my-4 bg-white" />

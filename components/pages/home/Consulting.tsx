@@ -68,9 +68,18 @@ export default function Consulting({ data }: { data: ConsultingSection }) {
                     imageClasses="rounded-2xl"
                   />
                   <div className="flex flex-col mt-6">
-                    <h3 className="text-black text-2xl font-bold my-0">
-                      {item.title}
-                    </h3>
+                    <div className="flex flex-row items-center">
+                      <h3 className="text-black text-2xl font-bold my-0">
+                        {item.title}
+                      </h3>
+                      <ImageBox
+                        image={item.icon}
+                        height={item.icon?.asset.metadata.dimensions.height}
+                        width={item.icon?.asset.metadata.dimensions.width}
+                        alt={item.title}
+                        classesWrapper="w-[30px] min-w-[30px] md:w-[20px] md:min-w-[20px] ml-2 object-contain rounded-none rotate-[270deg] mb-2"
+                      />
+                    </div>
                     <p className="text-gray-500 text-base mt-2 max-w-[75%] lg:max-w-[270px]">
                       {item.description}
                     </p>
@@ -99,9 +108,18 @@ export default function Consulting({ data }: { data: ConsultingSection }) {
                         classesWrapper="w-full object-contain border-[2px] border-white image-shadow"
                         imageClasses="rounded-2xl"
                       />
-                      <p className="text-black text-2xl font-bold mt-6">
-                        {item.title}
-                      </p>
+                      <div className="flex flex-row items-center">
+                        <p className="text-black text-2xl font-bold mt-6">
+                          {item.title}
+                        </p>
+                        <ImageBox
+                          image={item.icon}
+                          height={item.icon?.asset.metadata.dimensions.height}
+                          width={item.icon?.asset.metadata.dimensions.width}
+                          alt={item.title}
+                          classesWrapper="w-[20px] min-w-[20px] md:w-[20px] md:min-w-[20px] ml-2 mb-0 mt-1 object-contain  rounded-none rotate-[270deg]"
+                        />
+                      </div>
                       <p className="text-gray-500 text-base mt-2 max-w-[75%] lg:max-w-[270px]">
                         {item.description}
                       </p>

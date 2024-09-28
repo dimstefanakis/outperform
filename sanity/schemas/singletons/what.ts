@@ -44,10 +44,9 @@ export default defineType({
               type: 'string',
             }),
             defineField({
-              name: 'clientImages',
-              title: 'Client Images',
-              type: 'array',
-              of: [defineArrayMember({ type: 'image' })],
+              name: 'clientImage',
+              title: 'Client Image',
+              type: 'image',
             }),
           ],
         }),
@@ -82,7 +81,7 @@ export default defineType({
             defineField({
               name: 'studyTitle',
               title: 'Study Title',
-              type: 'string',
+              type: 'text',
             }),
             defineField({
               name: 'studyDescription',
@@ -106,7 +105,7 @@ export default defineType({
                     defineField({
                       name: 'title',
                       title: 'Title',
-                      type: 'string',
+                      type: 'text',
                     }),
                     defineField({
                       name: 'description',

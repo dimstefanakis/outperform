@@ -53,7 +53,7 @@ export const homePageQuery = groq`
       backgroundColor,
       clients[]{
         clientName,
-        clientImages[]{
+        clientImage{
           asset->{
             url,
             metadata {

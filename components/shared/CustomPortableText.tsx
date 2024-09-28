@@ -10,15 +10,17 @@ import { TimelineSection } from '@/components/shared/TimelineSection'
 
 export function CustomPortableText({
   paragraphClasses,
+  paragraphStyles,
   value,
 }: {
   paragraphClasses?: string
+  paragraphStyles?: React.CSSProperties
   value: PortableTextBlock[]
 }) {
   const components: PortableTextComponents = {
     block: {
       normal: ({ children }) => {
-        return <p className={paragraphClasses}>{children}</p>
+        return <p className={paragraphClasses} style={paragraphStyles}>{children}</p>
       },
     },
     marks: {

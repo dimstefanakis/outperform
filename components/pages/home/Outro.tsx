@@ -34,36 +34,7 @@ export function Outro({ data }: { data: OutroSection }) {
   }, [api])
 
   return (
-    <div className="w-full flex flex-col items-center justify-center mt-14 mb-20">
-      <h1 className="text-7xl md:text-9xl font-bold text-center w-full md:w-[70%]">
-        {data.title}
-      </h1>
-      <Link
-        href={data.cta_link || ''}
-        className="flex justify-center items-center cursor-pointer px-8 py-3 mt-4 rounded-full border-2 border-blue-500"
-      >
-        {data.cta_icon && (
-          <ImageBox
-            image={data.cta_icon}
-            height={data.cta_icon?.asset.metadata.dimensions.height}
-            width={data.cta_icon?.asset.metadata.dimensions.width}
-            alt={'CTA Icon'}
-            classesWrapper="w-3 h-3 mr-2 mb-1 rounded-none"
-            imageClasses="w-full h-full"
-          />
-        )}
-        <span>{data.cta_text}</span>
-      </Link>
-      <div className="w-[300px]">
-        <ImageBox
-          image={data.partners_image}
-          height={data.partners_image?.asset.metadata.dimensions.height}
-          width={data.partners_image?.asset.metadata.dimensions.width}
-          alt={'Outro Image'}
-          classesWrapper="w-full mt-24"
-          imageClasses="rounded-2xl"
-        />
-      </div>
+    <div className="w-full flex flex-col items-center justify-center pt-14 pb-20 bg-[#F6F6F6]">
       <div className="w-full md:w-[70%]">
         <Carousel
           setApi={setApi}
@@ -87,8 +58,7 @@ export function Outro({ data }: { data: OutroSection }) {
                       height={item?.asset.metadata.dimensions.height}
                       width={item?.asset.metadata.dimensions.width}
                       alt={'Brand Logo'}
-                      classesWrapper="w-full object-contain border-[2px] border-white image-shadow"
-                      imageClasses="rounded-2xl"
+                      classesWrapper="w-full object-contain bg-transparent rounded-none border-0"
                     />
                   </div>
                 </CarouselItem>
@@ -96,6 +66,35 @@ export function Outro({ data }: { data: OutroSection }) {
             })}
           </CarouselContent>
         </Carousel>
+      </div>
+      <h1 className="mt-[160px] text-7xl md:text-9xl font-bold text-center w-full md:w-[70%]">
+        {data.title}
+      </h1>
+      <Link
+        href={data.cta_link || ''}
+        className="group flex justify-center items-center cursor-pointer px-8 py-3 mt-4 rounded-full border-2 border-blue-500 hover:bg-blue-500 hover:text-white [&_img]:hover:brightness-0 [&_img]:hover:invert"
+      >
+        {data.cta_icon && (
+          <ImageBox
+            image={data.cta_icon}
+            height={data.cta_icon?.asset.metadata.dimensions.height}
+            width={data.cta_icon?.asset.metadata.dimensions.width}
+            alt={'CTA Icon'}
+            classesWrapper="w-3 h-3 mr-2 mb-1 rounded-none"
+            imageClasses="w-full h-full"
+          />
+        )}
+        <span>{data.cta_text}</span>
+      </Link>
+      <div className="w-[300px]">
+        <ImageBox
+          image={data.partners_image}
+          height={data.partners_image?.asset.metadata.dimensions.height}
+          width={data.partners_image?.asset.metadata.dimensions.width}
+          alt={'Outro Image'}
+          classesWrapper="w-full mt-24"
+          imageClasses="rounded-2xl"
+        />
       </div>
     </div>
   )
