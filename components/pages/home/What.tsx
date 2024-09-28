@@ -4,7 +4,6 @@ import { Separator } from '@/components/ui/separator'
 import { WhatSection } from '@/types'
 
 export function What({ data }: { data: WhatSection }) {
-  console.log(data.clients)
   return (
     <div id="what" className="w-full mt-20 md:mt-24 px-0 md:px-3 lg:px-3">
       <div className="flex w-full flex-col bg-black py-10 pt-24 px-4 lg:px-10 rounded-0 md:rounded-[25px]">
