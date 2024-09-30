@@ -48,7 +48,7 @@ export default defineType({
           name: 'text',
           type: 'string',
           title: 'CTA Text',
-          description: 'e.g., "Drop a line"',
+          description: 'e.g., "Drop us a line"',
         }),
         defineField({
           name: 'icon',
@@ -62,6 +62,23 @@ export default defineType({
         }),
       ],
       description: 'Add a "Drop a line" CTA with text and icon',
+    }),
+    defineField({
+      name: 'auditCTA',
+      title: 'Audit CTA',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'text',
+          type: 'string',
+          title: 'CTA Text',
+        }),
+        defineField({
+          name: 'icon',
+          type: 'image',
+          title: 'CTA Icon',
+        })
+      ],
     }),
   ],
 })

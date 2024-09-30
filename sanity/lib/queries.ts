@@ -309,6 +309,17 @@ export const globalNavigationQuery = groq`
         }
       },
       link
+    },
+    auditCTA{
+      text,
+      icon{
+        asset->{
+          url,
+          metadata {
+            dimensions
+          }
+        }
+      }
     }
   }
 `
