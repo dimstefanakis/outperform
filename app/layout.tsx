@@ -1,6 +1,8 @@
 import './globals.css'
 import Script from 'next/script'
 import Head from 'next/head'
+// import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from "@/components/ui/sonner"
 import { Analytics } from '@vercel/analytics/react'
 import localFont from '@next/font/local'
 import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
@@ -102,6 +104,7 @@ export default async function RootLayout({
       <body>
         {children}
         <Analytics />
+        <Toaster position="bottom-center" />
       </body>
     </html>
   )

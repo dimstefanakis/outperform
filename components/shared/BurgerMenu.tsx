@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Menu, MessageSquare, X } from 'lucide-react'
+import { Menu, MessageSquare, X, ArrowUpRight } from 'lucide-react'
 import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -9,6 +9,8 @@ import { Separator } from '@/components/ui/separator'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import type { NavigationItem, NavigationPayload } from '@/types'
 import ImageBox from './ImageBox'
+import AuditForm from '@/components/AuditForm'
+import Image from 'next/image'
 
 export default function BurgerMenu({
   menuItems,
@@ -18,6 +20,7 @@ export default function BurgerMenu({
   logo: NavigationPayload['logo']
 }) {
   const [isOpen, setIsOpen] = useState(false)
+  const [isAuditFormOpen, setIsAuditFormOpen] = useState(false)
 
   const menuItemVariants = {
     hidden: { opacity: 0, x: -20 },
@@ -88,16 +91,36 @@ export default function BurgerMenu({
           animate="visible"
           custom={menuItems.length}
         >
-          <a
-            href="#contact"
-            className="flex items-center py-2 text-lg hover:text-primary transition-colors"
-            onClick={() => setIsOpen(false)}
+          <div
+            className="flex items-center py-2 text-lg hover:text-primary transition-colors cursor-pointer"
+            onClick={() => {
+              setIsAuditFormOpen(true)
+              setIsOpen(false)
+            }}
           >
-            {/*<MessageSquare className="mr-2 h-5 w-5" />*/}
+            <Image src="/blue.png" alt="Blue arrow" width={20} height={20} className="mr-2 transform mb-1" />
             Drop us a line
-          </a>
+          </div>
+        </motion.div>
+        <motion.div
+          variants={menuItemVariants}
+          initial="hidden"
+          animate="visible"
+          custom={menuItems.length + 1}
+        >
+          <div
+            className="flex items-center py-2 text-lg hover:text-primary transition-colors cursor-pointer"
+            onClick={() => {
+              setIsAuditFormOpen(true)
+              setIsOpen(false)
+            }}
+          >
+            <Image src="/blue.png" alt="Blue arrow" width={20} height={20} className="mr-2 transform mb-1" />
+            Free Audit
+          </div>
         </motion.div>
       </SheetContent>
+      <AuditForm isOpen={isAuditFormOpen} onClose={() => setIsAuditFormOpen(false)} logo={logo} />
     </Sheet>
   )
 }

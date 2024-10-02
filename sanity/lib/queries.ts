@@ -195,6 +195,7 @@ export const homePageQuery = groq`
           }
         }
       },
+      outro_description,
       partners_image {
         asset-> {
           url,

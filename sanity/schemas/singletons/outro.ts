@@ -30,6 +30,38 @@ export default defineType({
       description: 'The icon for the call-to-action button',
     }),
     defineField({
+      name: 'outro_description',
+      title: 'Outro Description',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'block',
+          styles: [],
+          lists: [],
+          marks: {
+            decorators: [
+              { title: 'Strong', value: 'strong' },
+              { title: 'Emphasis', value: 'em' },
+            ],
+            annotations: [
+              {
+                name: 'color',
+                type: 'object',
+                title: 'Color',
+                fields: [
+                  {
+                    name: 'hex',
+                    type: 'color',
+                    title: 'Color',
+                  },
+                ],
+              },
+            ],
+          },
+        }),
+      ],
+    }),
+    defineField({
       name: 'partners_image',
       title: 'Partners Image',
       type: 'image',

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Autoscroll from 'embla-carousel-auto-scroll'
 import useEmblaCarousel from 'embla-carousel-react'
 import { useEffect, useState } from 'react'
+import AuditForm from '@/components/AuditForm'
 
 import ImageBox from '@/components/shared/ImageBox'
 import {
@@ -12,6 +13,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
+import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { type CarouselApi } from '@/components/ui/carousel'
 import { OutroSection } from '@/types'
 
@@ -19,6 +21,7 @@ export function Outro({ data }: { data: OutroSection }) {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
+  const [isAuditFormOpen, setIsAuditFormOpen] = useState(false)
 
   useEffect(() => {
     if (!api) {
@@ -70,8 +73,8 @@ export function Outro({ data }: { data: OutroSection }) {
       <h1 className="mt-[160px] text-7xl md:text-9xl font-bold text-center w-full md:w-[70%]">
         {data.title}
       </h1>
-      <Link
-        href={data.cta_link || ''}
+      <button
+        onClick={() => setIsAuditFormOpen(true)}
         className="group flex justify-center items-center cursor-pointer px-8 py-3 mt-4 rounded-full border-2 border-blue-500 hover:bg-blue-500 hover:text-white [&_img]:hover:brightness-0 [&_img]:hover:invert"
       >
         {data.cta_icon && (
@@ -85,7 +88,20 @@ export function Outro({ data }: { data: OutroSection }) {
           />
         )}
         <span>{data.cta_text}</span>
-      </Link>
+      </button>
+      {data.outro_description && (
+        <div className='w-full flex flex-col items-center justify-center'>
+          <div className="w-full mt-6 text-[#686868] max-w-[500px] flex justify-end px-4 lg:px-10">
+            <div className="text-md md:text-xs text-center">
+              <CustomPortableText value={data.outro_description}
+                paragraphStyles={{
+                  margin: '0px',
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
       <div className="w-[300px]">
         <ImageBox
           image={data.partners_image}
@@ -96,6 +112,11 @@ export function Outro({ data }: { data: OutroSection }) {
           imageClasses="rounded-2xl"
         />
       </div>
+      <AuditForm
+        isOpen={isAuditFormOpen}
+        onClose={() => setIsAuditFormOpen(false)}
+        logo={data.cta_icon}
+      />
     </div>
   )
 }

@@ -248,6 +248,12 @@ type FooterHeaderBlock = PortableTextBlock & {
   }
 }
 
+export interface OutroDescriptionBlock extends PortableTextBlock {
+  marks?: {
+    annotations?: ColorAnnotation[]
+  }
+}
+
 export interface WhoSection {
   header: string
   title: string
@@ -421,6 +427,7 @@ export interface OutroSection {
       }
     }
   }
+  outro_description?: OutroDescriptionBlock[]
   partners_image?: {
     asset: {
       url: string
