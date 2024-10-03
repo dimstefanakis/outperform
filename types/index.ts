@@ -248,6 +248,12 @@ type FooterHeaderBlock = PortableTextBlock & {
   }
 }
 
+export interface OutroDescriptionBlock extends PortableTextBlock {
+  marks?: {
+    annotations?: ColorAnnotation[]
+  }
+}
+
 export interface WhoSection {
   header: string
   title: string
@@ -345,6 +351,22 @@ export interface ContactCTA {
   link: string
 }
 
+export interface AuditCTA {
+  text: string
+  icon: {
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          aspectRatio: number
+          height: number
+          width: number
+        }
+      }
+    }
+  }
+}
+
 export interface NavigationPayload {
   title?: string
   logo?: {
@@ -361,6 +383,7 @@ export interface NavigationPayload {
   }
   navItems: NavigationItem[]
   contactCTA: ContactCTA
+  auditCTA: AuditCTA
 }
 
 export interface FooterLink {
@@ -404,6 +427,7 @@ export interface OutroSection {
       }
     }
   }
+  outro_description?: OutroDescriptionBlock[]
   partners_image?: {
     asset: {
       url: string

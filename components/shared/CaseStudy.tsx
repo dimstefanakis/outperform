@@ -111,7 +111,7 @@ export default function CaseStudy({
                 key={index}
                 className={`
                   flex flex-col pr-0 md:pr-8 p-8 ${index == 0 && !isLaptop ? 'pt-0' : ''} border-gray-500
-                  ${pillar.carousel || pillar.rowSpan === 2 ? 'col-span-2 md:col-span-1 md:row-span-2 order-10 md:border-l-[1px] border-gray-500' : `col-span-2 md:col-span-${pillar.columnSpan || 1} ${applyBorderBottom(index)} border-gray-500`}
+                  ${pillar.carousel || pillar.rowSpan === 2 ? 'col-span-2 md:col-span-1 md:row-span-2 md:order-10 md:border-l-[1px] border-gray-500' : `col-span-2 md:col-span-${pillar.columnSpan || 1} ${applyBorderBottom(index)} border-gray-500`}
                 `}
                 style={
                   !isLaptop

@@ -195,6 +195,7 @@ export const homePageQuery = groq`
           }
         }
       },
+      outro_description,
       partners_image {
         asset-> {
           url,
@@ -309,6 +310,17 @@ export const globalNavigationQuery = groq`
         }
       },
       link
+    },
+    auditCTA{
+      text,
+      icon{
+        asset->{
+          url,
+          metadata {
+            dimensions
+          }
+        }
+      }
     }
   }
 `
