@@ -1,10 +1,11 @@
 'use client'
-import Link from 'next/link'
 import Autoscroll from 'embla-carousel-auto-scroll'
 import useEmblaCarousel from 'embla-carousel-react'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import AuditForm from '@/components/AuditForm'
 
+import AuditForm from '@/components/AuditForm'
+import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import ImageBox from '@/components/shared/ImageBox'
 import {
   Carousel,
@@ -13,7 +14,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { type CarouselApi } from '@/components/ui/carousel'
 import { OutroSection } from '@/types'
 

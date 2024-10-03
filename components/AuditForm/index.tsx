@@ -1,10 +1,15 @@
 'use client'
-import { useState, useRef } from 'react'
+import { AnimatePresence,motion } from 'framer-motion'
+import { ChevronLeft, ChevronRight, Loader2,X } from 'lucide-react'
 import Image from 'next/image'
-import { Dialog, DialogContent } from '@/components/ui/dialog'
+import { useRef,useState } from 'react'
+import { Controller,useForm } from 'react-hook-form'
+import { toast } from "sonner"
+
+import { createAuditFormEntry } from '@/app/actions/createAuditFormEntry'
 import { Button } from '@/components/ui/button'
+import { Dialog, DialogContent } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
-import { Separator } from '@/components/ui/separator'
 import {
   Select,
   SelectContent,
@@ -12,12 +17,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { X, ChevronRight, ChevronLeft, Loader2 } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useForm, Controller } from 'react-hook-form'
-import { createAuditFormEntry } from '@/app/actions/createAuditFormEntry'
+import { Separator } from '@/components/ui/separator'
 import { cn } from '@/lib/utils'
-import { toast } from "sonner"
 
 interface AuditFormProps {
   isOpen: boolean

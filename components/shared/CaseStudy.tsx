@@ -1,5 +1,6 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useEffect,useState } from 'react'
+
 import {
   Carousel,
   CarouselContent,
@@ -7,10 +8,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import { Separator } from '@/components/ui/separator'
-import { CaseStudy as CaseStudyInterface } from '@/types'
 import { type CarouselApi } from '@/components/ui/carousel'
+import { Separator } from '@/components/ui/separator'
 import useMediaQuery from '@/hooks/useMediaQuery'
+import { CaseStudy as CaseStudyInterface } from '@/types'
 
 import ImageBox from './ImageBox'
 

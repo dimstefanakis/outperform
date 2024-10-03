@@ -1,11 +1,13 @@
 import './globals.css'
-import Script from 'next/script'
+
+import localFont from '@next/font/local'
+import { Analytics } from '@vercel/analytics/react'
+import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
 import Head from 'next/head'
+import Script from 'next/script'
+
 // import { Toaster } from "@/components/ui/toaster"
 import { Toaster } from "@/components/ui/sonner"
-import { Analytics } from '@vercel/analytics/react'
-import localFont from '@next/font/local'
-import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
 
 const serif = PT_Serif({
   variable: '--font-serif',

@@ -2,9 +2,9 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
+import AuditForm from '@/components/AuditForm'
 import BurgerMenu from '@/components/shared/BurgerMenu'
 import ImageBox from '@/components/shared/ImageBox'
-import AuditForm from '@/components/AuditForm'
 import useMediaQuery from '@/hooks/useMediaQuery'
 import type { NavigationItem, NavigationPayload } from '@/types'
 
