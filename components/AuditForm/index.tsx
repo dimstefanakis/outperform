@@ -341,7 +341,7 @@ const AuditForm: React.FC<AuditFormProps> = ({ isOpen, onClose, logo }) => {
                 <X className="h-6 w-6" />
               </Button>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-1 flex-col mt-6'>
+            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-1 flex-col mt-6 md:mt-16'>
               {/* Add the honeypot field */}
               <input
                 type="text"
