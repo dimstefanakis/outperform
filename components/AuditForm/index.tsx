@@ -292,8 +292,7 @@ const AuditForm: React.FC<AuditFormProps> = ({ isOpen, onClose, logo }) => {
                       className="mb-6 invert"
                     />
                     <h2 className="text-7xl font-bold mb-4">THANK YOU.</h2>
-                    <p className="text-2xl mb-2">We'll be in touch.</p>
-                    <p className="text-2xl">Shortly!</p>
+                    <p className="text-2xl mb-2">We'll be in touch shortly!</p>
                   </motion.div>
                 )
             }
