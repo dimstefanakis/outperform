@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Menu, MessageSquare, X, ArrowUpRight } from 'lucide-react'
 import { useState } from 'react'
@@ -91,16 +92,13 @@ export default function BurgerMenu({
           animate="visible"
           custom={menuItems.length}
         >
-          <div
+          <Link
+            href="mailto:hello@outperformagency.com"
             className="flex items-center py-2 text-lg hover:text-primary transition-colors cursor-pointer"
-            onClick={() => {
-              setIsAuditFormOpen(true)
-              setIsOpen(false)
-            }}
           >
             <Image src="/blue.png" alt="Blue arrow" width={20} height={20} className="mr-2 transform mb-1" />
             Drop us a line
-          </div>
+          </Link>
         </motion.div>
         <motion.div
           variants={menuItemVariants}
