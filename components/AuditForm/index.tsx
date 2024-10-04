@@ -307,7 +307,7 @@ const AuditForm: React.FC<AuditFormProps> = ({ isOpen, onClose, logo }) => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent
         showCloseButton={false}
-        className="h-[100vh] w-[100vw] max-w-[100vw] p-0 border-0"
+        className="h-[100vh] w-[100vw] max-w-[100vw] p-0 border-0 safe-area-top safe-area-bottom"
         style={{
           borderRadius: '0px',
         }}
