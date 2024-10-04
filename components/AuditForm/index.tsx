@@ -250,7 +250,7 @@ const AuditForm: React.FC<AuditFormProps> = ({ isOpen, onClose, logo }) => {
                     <label className="block mb-6 text-xl">
                       Monthly Media Spend <span className="text-gray-500">in USD</span>
                     </label>
-                    <div className="flex flex-wrap gap-6">
+                    <div className="flex flex-wrap gap-4 md:gap-6">
                       <Controller
                         name="monthlySpend"
                         control={control}
@@ -267,7 +267,7 @@ const AuditForm: React.FC<AuditFormProps> = ({ isOpen, onClose, logo }) => {
                                 key={value}
                                 type='button'
                                 onClick={() => field.onChange(value)}
-                                className={`rounded-full border-2 px-[30px] py-[25px] text-sm md:text-xl ${field.value === value
+                                className={`rounded-full border-2 px-[20px] py-[15px] md:px-[30px] md:py-[25px] text-sm md:text-xl ${field.value === value
                                   ? 'bg-blue-500 text-white border-blue-500'
                                   : 'bg-black text-[#686868] border-[#686868] hover:border-blue-500 hover:bg-blue-500 hover:text-white focus:border-blue-500 focus:bg-blue-500 focus:text-white'
                                   }`}
@@ -307,7 +307,7 @@ const AuditForm: React.FC<AuditFormProps> = ({ isOpen, onClose, logo }) => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent
         showCloseButton={false}
-        className="h-[100vh] w-[100vw] max-w-[100vw] p-0 border-0"
+        className="h-[100%] w-[100vw] max-w-[100vw] p-0 border-0 safe-area-top safe-area-bottom"
         style={{
           borderRadius: '0px',
         }}
@@ -341,7 +341,7 @@ const AuditForm: React.FC<AuditFormProps> = ({ isOpen, onClose, logo }) => {
                 <X className="h-6 w-6" />
               </Button>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-1 flex-col mt-16'>
+            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-1 flex-col mt-6'>
               {/* Add the honeypot field */}
               <input
                 type="text"

@@ -118,6 +118,12 @@ const config = {
           '-webkit-mask-image':
             '-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))',
         },
+				'.safe-area-top': {
+					'padding-top': 'env(safe-area-inset-top)',
+				},
+				'.safe-area-bottom': {
+					'padding-bottom': 'env(safe-area-inset-bottom)',
+				},
       }
       addUtilities(newUtilities, ['responsive', 'hover'])
     },
