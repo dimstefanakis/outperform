@@ -41,6 +41,8 @@
     "embla-carousel-auto-scroll": "^8.2.1",
     "embla-carousel-autoplay": "^8.2.1",
     "embla-carousel-react": "^8.2.0",
+    "logrocket": "^9.0.0",
+    "logrocket-react": "^6.0.3",
     "lucide-react": "^0.447.0",
     "next": "14.2.5",
     "next-sanity": "9.4.7",

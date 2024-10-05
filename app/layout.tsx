@@ -3,8 +3,10 @@ import Script from 'next/script'
 import Head from 'next/head'
 // import { Toaster } from "@/components/ui/toaster"
 import { Toaster } from "@/components/ui/sonner"
+import Logrocket from "@/components/Logrocket";
 import { Analytics } from '@vercel/analytics/react'
 import localFont from '@next/font/local'
+
 import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
 
 const serif = PT_Serif({
@@ -105,6 +107,7 @@ export default async function RootLayout({
         {children}
         <Analytics />
         <Toaster position="bottom-center" />
+        <Logrocket />
       </body>
     </html>
   )
