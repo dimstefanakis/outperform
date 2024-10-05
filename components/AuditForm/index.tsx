@@ -42,7 +42,9 @@ const AuditForm: React.FC<AuditFormProps> = ({ isOpen, onClose, logo }) => {
 
   const handleNext = (e) => {
     e.preventDefault()
-    setStep(step + 1)
+    if (validateStep()) {
+      setStep(step + 1)
+    }
   }
 
   const handleBack = (e) => {
@@ -50,6 +52,38 @@ const AuditForm: React.FC<AuditFormProps> = ({ isOpen, onClose, logo }) => {
     if (step > 1) {
       setStep(step - 1)
     }
+  }
+
+  const validateStep = () => {
+    let isValid = true
+    let errorMessage = ''
+
+    switch (step) {
+      case 1:
+        if (!watch('name') || !watch('email')) {
+          isValid = false
+          errorMessage = 'Please fill in both name and email'
+        }
+        break
+      case 2:
+        if (!watch('businessName') || !watch('websiteUrl') || !watch('region')) {
+          isValid = false
+          errorMessage = 'Please fill in all business details'
+        }
+        break
+      case 3:
+        if (!watch('monthlySpend')) {
+          isValid = false
+          errorMessage = 'Please select a monthly spend option'
+        }
+        break
+    }
+
+    if (!isValid) {
+      toast.error(errorMessage)
+    }
+
+    return isValid
   }
 
   const onSubmit = async (data) => {
@@ -62,11 +96,7 @@ const AuditForm: React.FC<AuditFormProps> = ({ isOpen, onClose, logo }) => {
       }
 
       // Check if all required fields are filled
-      const requiredFields = ['name', 'email', 'businessName', 'websiteUrl', 'region', 'monthlySpend']
-      const missingFields = requiredFields.filter(field => !data[field])
-
-      if (missingFields.length > 0) {
-        toast.error('Please fill in all required fields')
+      if (!validateStep()) {
         setIsSubmitting(false)
         return
       }
@@ -111,9 +141,11 @@ const AuditForm: React.FC<AuditFormProps> = ({ isOpen, onClose, logo }) => {
         }
       } else {
         console.error('Failed to submit form:', result.error)
+        toast.error('Failed to submit form. Please try again.')
       }
     } catch (error) {
       console.error('Error submitting form:', error)
+      toast.error('An error occurred. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
