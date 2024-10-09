@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 import BurgerMenu from '@/components/shared/BurgerMenu'
 import ImageBox from '@/components/shared/ImageBox'
@@ -18,7 +19,10 @@ export default function Navbar(props: NavbarProps) {
   const menuItems = data?.navItems || ([] as NavigationItem[])
   const [isSticky, setIsSticky] = useState(false)
   const isLaptop = useMediaQuery('(min-width: 1024px)')
+  const searchParams = useSearchParams()
+  const formParam = searchParams.get('form')
 
+  console.log(formParam, searchParams)
   useEffect(() => {
     const handleScroll = () => {
       const heroSection = document.querySelector('.hero-section')
@@ -31,6 +35,12 @@ export default function Navbar(props: NavbarProps) {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    if (formParam === 'true') {
+      setIsAuditFormOpen(true)
+    }
+  }, [formParam])
 
   let isSafari = false
   try {
