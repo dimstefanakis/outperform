@@ -91,7 +91,6 @@ const AuditForm: React.FC<AuditFormProps> = ({ isOpen, onClose, logo }) => {
     try {
       // Check if the honeypot field is filled
       if (honeypotRef.current && honeypotRef.current.value) {
-        console.log('Bot submission detected')
         return
       }
 

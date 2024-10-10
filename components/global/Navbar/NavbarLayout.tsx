@@ -22,7 +22,6 @@ export default function Navbar(props: NavbarProps) {
   const searchParams = useSearchParams()
   const formParam = searchParams.get('form')
 
-  console.log(formParam, searchParams)
   useEffect(() => {
     const handleScroll = () => {
       const heroSection = document.querySelector('.hero-section')
