@@ -211,7 +211,6 @@ export default function CaseStudy({
           />
         </div>
       </div>
-      {!isLast && <Separator className="w-full my-10 bg-gray-500" />}
     </div>
   )
 }

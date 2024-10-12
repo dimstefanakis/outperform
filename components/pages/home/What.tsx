@@ -43,15 +43,22 @@ export function What({ data }: { data: WhatSection }) {
             </div>
           )}
         </div>
-        <Separator className="w-full my-6 bg-gray-500" />
         {data.caseStudies && (
           <div className="flex flex-col">
             {data.caseStudies.map((caseStudy, index) => (
-              <CaseStudy
-                key={index}
-                data={caseStudy}
-                isLast={index === (data.caseStudies?.length || 0) - 1}
-              />
+              <div key={index} className="relative">
+                <div className={`flex items-center mb-14 ${index === 0 ? 'md:mt-14' : ''}`}>
+                  <div className="h-[2px] bg-white w-[25px]"></div>
+                  <div className="flex-shrink-0 w-10 h-10 border-2 border-white rounded-md flex items-center justify-center relative">
+                    <span className="text-white text-2xl font-bold mt-[4px]">#{index + 1}</span>
+                  </div>
+                  <div className="flex-grow h-[2px] bg-white flex-[3]"></div>
+                </div>
+                <CaseStudy
+                  data={caseStudy}
+                  isLast={index === (data.caseStudies?.length || 0) - 1}
+                />
+              </div>
             ))}
           </div>
         )}
