@@ -21,6 +21,21 @@ const config = {
   		fontFamily: {
   			sans: ['var(--font-cfdromon)']
   		},
+  		fontSize: {
+  			'responsive-xs': 'clamp(0.75rem, 0.7rem + 0.25vw, 1rem)',
+  			'responsive-sm': 'clamp(0.875rem, 0.8rem + 0.375vw, 1.25rem)',
+  			'responsive-base': 'clamp(1rem, 0.9rem + 0.5vw, 1.5rem)',
+  			'responsive-lg': 'clamp(1.125rem, 1rem + 0.625vw, 1.75rem)',
+  			'responsive-xl': 'clamp(1.25rem, 1.1rem + 0.75vw, 2rem)',
+  			'responsive-2xl': 'clamp(1.5rem, 1.3rem + 1vw, 2.5rem)',
+  			'responsive-3xl': 'clamp(1.875rem, 1.6rem + 1.375vw, 3.25rem)',
+  			'responsive-4xl': 'clamp(2.25rem, 1.9rem + 1.75vw, 4rem)',
+  			'responsive-5xl': 'clamp(3rem, 2.5rem + 2.5vw, 5.5rem)',
+  			'responsive-6xl': 'clamp(3.75rem, 3.1rem + 3.25vw, 7rem)',
+  			'responsive-7xl': 'clamp(4.5rem, 3.7rem + 4vw, 8.5rem)',
+  			'responsive-8xl': 'clamp(6rem, 4.9rem + 5.5vw, 11.5rem)',
+  			'responsive-9xl': 'clamp(8rem, 6.5rem + 7.5vw, 15.5rem)',
+  		},
   		colors: {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',

@@ -38,13 +38,13 @@ export default function Consulting({ data }: { data: ConsultingSection }) {
     <div className="flex flex-col w-full my-10 md:my-20">
       <div className="flex w-full flex-col">
         {data.title && (
-          <div className="text-black text-4xl md:text-5xl font-bold mt-6 mb-10 flex">
+          <div className="text-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-6 mb-10 flex">
             <ImageBox
               image={data.icon}
               height={data.icon?.asset.metadata.dimensions.height}
               width={data.icon?.asset.metadata.dimensions.width}
               alt={data.title}
-              classesWrapper="w-[30px] min-w-[30px] md:w-[40px] md:min-w-[40px] mr-2 object-contain rounded-none"
+              classesWrapper="w-[25px] min-w-[25px] sm:w-[30px] sm:min-w-[30px] md:w-[35px] md:min-w-[35px] lg:w-[40px] lg:min-w-[40px] mr-2 object-contain rounded-none"
             />
             <span>{data.title}</span>
           </div>
@@ -69,7 +69,7 @@ export default function Consulting({ data }: { data: ConsultingSection }) {
                   />
                   <div className="flex flex-col mt-6">
                     <div className="flex flex-row items-center">
-                      <h3 className="text-black text-2xl font-bold my-0">
+                      <h3 className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold my-0">
                         {item.title}
                       </h3>
                       <ImageBox
@@ -77,10 +77,10 @@ export default function Consulting({ data }: { data: ConsultingSection }) {
                         height={item.icon?.asset.metadata.dimensions.height}
                         width={item.icon?.asset.metadata.dimensions.width}
                         alt={item.title}
-                        classesWrapper="w-[30px] min-w-[30px] md:w-[20px] md:min-w-[20px] ml-2 object-contain rounded-none rotate-[270deg] mb-2"
+                        classesWrapper="w-[20px] min-w-[20px] sm:w-[25px] sm:min-w-[25px] md:w-[30px] md:min-w-[30px] ml-2 object-contain rounded-none rotate-[270deg] mb-2"
                       />
                     </div>
-                    <p className="text-gray-500 text-base mt-2 max-w-[75%] lg:max-w-[270px]">
+                    <p className="text-gray-500 text-sm sm:text-base md:text-lg lg:text-xl mt-2 max-w-[75%] lg:max-w-[270px] 2xl:max-w-[400px]">
                       {item.description}
                     </p>
                   </div>
@@ -109,7 +109,7 @@ export default function Consulting({ data }: { data: ConsultingSection }) {
                         imageClasses="rounded-2xl"
                       />
                       <div className="flex flex-row items-center">
-                        <p className="text-black text-2xl font-bold mt-6">
+                        <p className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mt-6">
                           {item.title}
                         </p>
                         <ImageBox
@@ -117,10 +117,10 @@ export default function Consulting({ data }: { data: ConsultingSection }) {
                           height={item.icon?.asset.metadata.dimensions.height}
                           width={item.icon?.asset.metadata.dimensions.width}
                           alt={item.title}
-                          classesWrapper="w-[20px] min-w-[20px] md:w-[20px] md:min-w-[20px] ml-2 mb-0 mt-1 object-contain  rounded-none rotate-[270deg]"
+                          classesWrapper="w-[15px] min-w-[15px] sm:w-[20px] sm:min-w-[20px] md:w-[25px] md:min-w-[25px] ml-2 mb-0 mt-1 object-contain rounded-none rotate-[270deg]"
                         />
                       </div>
-                      <p className="text-gray-500 text-base mt-2 max-w-[75%] lg:max-w-[270px]">
+                      <p className="text-gray-500 text-sm sm:text-base md:text-lg lg:text-xl mt-2 max-w-[75%] lg:max-w-[270px]">
                         {item.description}
                       </p>
                     </div>

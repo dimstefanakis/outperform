@@ -11,19 +11,19 @@ export function How({ data }: { data: HowSection }) {
       <div className="flex w-full flex-col py-10 px-4 lg:px-10 rounded-0 md:rounded-[50px]">
         {data.header && (
           <div>
-            <span className="text-md font-bold text-blue-500">
+            <span className="text-sm sm:text-md font-bold text-blue-500">
               {data.header}
             </span>
             <Separator className="bg-blue-500 h-[2px] w-[30px]" />
           </div>
         )}
         {data.title && (
-          <div className="text-black text-5xl md:text-7xl font-bold mt-6">
+          <div className="text-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold mt-6">
             {data.title}
           </div>
         )}
         {data.description && (
-          <p className="text-gray-500 text-lg mt-4 whitespace-break-spaces">
+          <p className="text-gray-500 text-base sm:text-lg md:text-xl lg:text-2xl mt-4 whitespace-break-spaces">
             {data.description}
           </p>
         )}
