@@ -23,7 +23,7 @@ export function What({ data }: { data: WhatSection }) {
               </div>
             )}
             {data.description && (
-              <p className="text-gray-500 text-md md:text-lg mt-6 whitespace-break-spaces">
+              <p className="text-gray-500 hidden md:block text-md md:text-lg mt-6 whitespace-break-spaces">
                 {data.description}
               </p>
             )}
