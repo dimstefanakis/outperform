@@ -17,9 +17,11 @@ import ImageBox from './ImageBox'
 export default function CaseStudy({
   data,
   isLast,
+  index,
 }: {
   data: CaseStudyInterface
   isLast: boolean
+  index: number
 }) {
   const isLaptop = useMediaQuery('(min-width: 1024px)')
   const [api, setApi] = useState<CarouselApi>()
@@ -73,144 +75,157 @@ export default function CaseStudy({
   }, [api])
 
   return (
-    <div>
-      <div className="grid my-10 md:grid-cols-2 gap-20">
-        <div
-          className={`flex flex-col relative p-6 md:p-0`}
-          style={{
-            order:
-              data?.imagePosition === 'right' || !data?.imagePosition ? 1 : 2,
-          }}
-        >
-          <div className="flex flex-col text-white mb-10 z-10">
-            <ImageBox
-              image={data?.clientImage}
-              height={data?.clientImage?.asset?.metadata?.dimensions?.height}
-              width={data?.clientImage?.asset?.metadata?.dimensions?.width}
-              alt="client image"
-              classesWrapper="h-12 mt-12 md:mt-0 mb-24 flex justify-center md:justify-start mx-auto md:mr-auto md:mx-0 min-w-[300px]"
-              imageClasses="object-contain h-full w-auto"
-              imagesStyles={{
-                width: 'auto',
-              }}
-            />
-            <h1 className="text-4xl whitespace-break-spaces">
-              {data?.studyTitle}
-            </h1>
-            {isLaptop && (
-              <span className="text-gray-500 text-xl mt-6 mb-24">
-                {data?.studyDescription}
-              </span>
-            )}
+    <>
+      <div className={`relative ${index !== 0 ? 'my-10' : 'mb-10'}`}>
+        {/* Index number */}
+        <div className="hidden md:block absolute left-0 top-0 flex items-center">
+          <div className="flex-shrink-0 w-10 h-10 border-2 border-white rounded-md flex items-center justify-center bg-black">
+            <span className="text-white text-2xl font-bold mt-[4px]">#{index + 1}</span>
           </div>
+        </div>
+        <div className="grid my-0 md:grid-cols-2 gap-20 md:ml-20">
           <div
-            className={`grid grid-cols-2 z-10 ${hasFullHeightCarousel || hasFullHeightPillar ? 'md:grid-rows-2 lg:grid-flow-col' : ''} gap-0`}
+            className={`flex flex-col relative p-6 md:p-0`}
+            style={{
+              order:
+                data?.imagePosition === 'right' || !data?.imagePosition ? 1 : 2,
+            }}
           >
-            {data?.studyPillars?.map((pillar, index) => (
-              <div
-                key={index}
-                className={`
-                  flex flex-col pr-0 md:pr-8 p-8 ${index == 0 && !isLaptop ? 'pt-0' : ''} border-gray-500
-                  ${pillar.carousel || pillar.rowSpan === 2 ? 'col-span-2 md:col-span-1 md:row-span-2 md:order-10 md:border-l-[1px] border-gray-500' : `col-span-2 md:col-span-${pillar.columnSpan || 1} ${applyBorderBottom(index)} border-gray-500`}
-                `}
-                style={
-                  !isLaptop
-                    ? {
-                        borderLeftWidth: '1px',
-                      }
-                    : {}
-                }
-              >
-                {!isLaptop && index == 0 && (
-                  <span className="text-gray-500 text-xl mt-0 mb-12">
-                    {data?.studyDescription}
-                  </span>
-                )}
-                <h3 className="text-lg font-bold text-white whitespace-break-spaces uppercase">
-                  {pillar.title}
-                </h3>
-                <Separator className="w-[50px] my-4 bg-white" />
-                {pillar.description && (
-                  <p className="text-md max-w-full ml-6 text-gray-500">
-                    {pillar.description}
-                  </p>
-                )}
+            <div className="flex flex-col text-white mb-10 z-10">
+              <ImageBox
+                image={data?.clientImage}
+                height={data?.clientImage?.asset?.metadata?.dimensions?.height}
+                width={data?.clientImage?.asset?.metadata?.dimensions?.width}
+                alt="client image"
+                classesWrapper="h-12 mt-12 md:mt-0 mb-24 flex justify-center md:justify-start mx-auto md:mr-auto md:mx-0 min-w-[300px]"
+                imageClasses="object-contain h-full w-auto"
+                imagesStyles={{
+                  width: 'auto',
+                }}
+              />
+              <h1 className="text-4xl whitespace-break-spaces">
+                {data?.studyTitle}
+              </h1>
+              {isLaptop && (
+                <span className="text-gray-500 text-xl mt-6 mb-24">
+                  {data?.studyDescription}
+                </span>
+              )}
+            </div>
+            <div
+              className={`grid grid-cols-2 z-10 ${hasFullHeightCarousel || hasFullHeightPillar ? 'md:grid-rows-2 lg:grid-flow-col' : ''} gap-0`}
+            >
+              {data?.studyPillars?.map((pillar, index) => (
+                <div
+                  key={index}
+                  className={`
+                    flex flex-col pr-0 md:pr-8 p-8 ${index == 0 && !isLaptop ? 'pt-0' : ''} border-gray-500
+                    ${pillar.carousel || pillar.rowSpan === 2 ? 'col-span-2 md:col-span-1 md:row-span-2 md:order-10 md:border-l-[1px] border-gray-500' : `col-span-2 md:col-span-${pillar.columnSpan || 1} ${applyBorderBottom(index)} border-gray-500`}
+                  `}
+                  style={
+                    !isLaptop
+                      ? {
+                          borderLeftWidth: '1px',
+                        }
+                      : {}
+                  }
+                >
+                  {!isLaptop && index == 0 && (
+                    <span className="text-gray-500 text-xl mt-0 mb-12">
+                      {data?.studyDescription}
+                    </span>
+                  )}
+                  <h3 className="text-lg font-bold text-white whitespace-break-spaces uppercase">
+                    {pillar.title}
+                  </h3>
+                  <Separator className="w-[50px] my-4 bg-white" />
+                  {pillar.description && (
+                    <p className="text-md max-w-full ml-6 text-gray-500">
+                      {pillar.description}
+                    </p>
+                  )}
 
-                {pillar.carousel && (
-                  <Carousel
-                    setApi={setApi}
-                    className={pillar.carousel ? 'flex-1 mt-6 md:px-4' : ''}
-                  >
-                    <CarouselContent
-                      className={pillar.carousel ? 'h-full ml-6 md:ml-0' : ''}
+                  {pillar.carousel && (
+                    <Carousel
+                      setApi={setApi}
+                      className={pillar.carousel ? 'flex-1 mt-6 md:px-4' : ''}
                     >
-                      {pillar.carousel.map((carouselItem, index) => (
-                        <CarouselItem
-                          key={index}
-                          className={
-                            pillar.carousel
-                              ? `h-full w-[100%] pl-0 md:pl-4 ${index !== 0 ? 'px-2' : ''} md:px-2`
-                              : ''
-                          }
-                        >
-                          <div className="flex flex-col bg-[#242424] rounded-lg p-4 h-full">
-                            <h3 className="text-sm font-bold text-white uppercase">
-                              {carouselItem.title}
-                            </h3>
-                            <Separator className="w-[50px] my-4 bg-white" />
-                            <p className="text-xs max-w-full whitespace-break-spaces ml-0 text-gray-500 flex-grow">
-                              {carouselItem.description}
-                            </p>
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    <CarouselPrevious className="md:left-0 left-[0px]" />
-                    <CarouselNext className="md:right-0 right-[-25px]" />
-                    <div className="w-full flex items-center justify-center mt-4">
-                      <div className="w-full mx-6 mr-0 bg-gray-500 h-[2px] md:mx-2 relative">
-                        <Separator
-                          className={`w-full h-[2px] bg-blue-500 transition-all duration-300 ease-in-out`}
-                          style={{
-                            width: `${(current / count) * 100}%`,
-                          }}
-                        />
+                      <CarouselContent
+                        className={pillar.carousel ? 'h-full ml-6 md:ml-0' : ''}
+                      >
+                        {pillar.carousel.map((carouselItem, index) => (
+                          <CarouselItem
+                            key={index}
+                            className={
+                              pillar.carousel
+                                ? `h-full w-[100%] pl-0 md:pl-4 ${index !== 0 ? 'px-2' : ''} md:px-2`
+                                : ''
+                            }
+                          >
+                            <div className="flex flex-col bg-[#242424] rounded-lg p-4 h-full">
+                              <h3 className="text-sm font-bold text-white uppercase">
+                                {carouselItem.title}
+                              </h3>
+                              <Separator className="w-[50px] my-4 bg-white" />
+                              <p className="text-xs max-w-full whitespace-break-spaces ml-0 text-gray-500 flex-grow">
+                                {carouselItem.description}
+                              </p>
+                            </div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      <CarouselPrevious className="md:left-0 left-[0px]" />
+                      <CarouselNext className="md:right-0 right-[-25px]" />
+                      <div className="w-full flex items-center justify-center mt-4">
+                        <div className="w-full mx-6 mr-0 bg-gray-500 h-[2px] md:mx-2 relative">
+                          <Separator
+                            className={`w-full h-[2px] bg-blue-500 transition-all duration-300 ease-in-out`}
+                            style={{
+                              width: `${(current / count) * 100}%`,
+                            }}
+                          />
+                        </div>
                       </div>
-                    </div>
-                  </Carousel>
-                )}
-              </div>
-            ))}
+                    </Carousel>
+                  )}
+                </div>
+              ))}
+            </div>
+            <div
+              className={`block absolute md:hidden top-0 left-0 w-full h-full z-[1]`}
+            >
+              <ImageBox
+                image={data?.image}
+                height={data?.image?.asset?.metadata?.dimensions?.height}
+                width={data?.image?.asset?.metadata?.dimensions?.width}
+                alt="background image"
+                classesWrapper="w-full h-full object-cover"
+                imageClasses="h-full object-cover rounded-lg full-opacity-to-transparent"
+              />
+            </div>
           </div>
           <div
-            className={`block absolute md:hidden top-0 left-0 w-full h-full z-[1]`}
+            className={`hidden md:flex col-span-2 md:col-span-1 flex-col`}
+            style={{
+              order:
+                data?.imagePosition === 'right' || !data?.imagePosition ? 2 : 1,
+            }}
           >
             <ImageBox
               image={data?.image}
               height={data?.image?.asset?.metadata?.dimensions?.height}
               width={data?.image?.asset?.metadata?.dimensions?.width}
               alt="background image"
-              classesWrapper="w-full h-full object-cover"
-              imageClasses="h-full object-cover rounded-lg full-opacity-to-transparent"
+              classesWrapper="w-full object-cover relative"
             />
           </div>
         </div>
-        <div
-          className={`hidden md:flex col-span-2 md:col-span-1 flex-col`}
-          style={{
-            order:
-              data?.imagePosition === 'right' || !data?.imagePosition ? 2 : 1,
-          }}
-        >
-          <ImageBox
-            image={data?.image}
-            height={data?.image?.asset?.metadata?.dimensions?.height}
-            width={data?.image?.asset?.metadata?.dimensions?.width}
-            alt="background image"
-            classesWrapper="w-full object-cover relative"
-          />
-        </div>
       </div>
-    </div>
+      {!isLast && (
+        <div className="flex items-center ml-20 hidden md:block">
+          <Separator className="w-full h-[1px] bg-gray-500 my-10" />
+        </div>
+      )}
+    </>
   )
 }
