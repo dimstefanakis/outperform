@@ -78,7 +78,7 @@ export default function CaseStudy({
     <>
       <div className={`relative ${index !== 0 ? 'my-10' : 'mb-10'}`}>
         {/* Index number */}
-        <div className="hidden xl:block absolute left-0 top-0 flex items-center">
+        <div className="hidden md:block absolute left-0 top-0 flex items-center">
           <div className="flex-shrink-0 w-10 h-10 border-2 border-white rounded-md flex items-center justify-center bg-black">
             <span className="text-white text-2xl font-bold mt-[4px]">#{index + 1}</span>
           </div>
@@ -113,14 +113,14 @@ export default function CaseStudy({
               )}
             </div>
             <div
-              className={`grid grid-cols-2 z-10 ${hasFullHeightCarousel || hasFullHeightPillar ? 'xl:grid-rows-2 xl:grid-flow-col' : ''} gap-0`}
+              className={`grid grid-cols-2 z-10 ${hasFullHeightCarousel || hasFullHeightPillar ? 'md:grid-rows-2 md:grid-flow-col' : ''} gap-0`}
             >
               {data?.studyPillars?.map((pillar, index) => (
                 <div
                   key={index}
                   className={`
                     flex flex-col pr-0 md:pr-8 p-8 ${index == 0 && !isLaptop ? 'pt-0' : ''} border-gray-500
-                    ${pillar.carousel || pillar.rowSpan === 2 ? 'col-span-2 xl:col-span-1 xl:row-span-2 xl:order-10 xl:border-l-[1px] border-gray-500' : `col-span-2 xl:col-span-${pillar.columnSpan || 1} ${applyBorderBottom(index)} border-gray-500`}
+                    ${pillar.carousel || pillar.rowSpan === 2 ? 'col-span-2 md:col-span-1 md:row-span-2 md:order-10 md:border-l-[1px] border-gray-500' : `col-span-2 md:col-span-${pillar.columnSpan || 1} ${applyBorderBottom(index)} border-gray-500`}
                   `}
                   style={
                     !isLaptop
