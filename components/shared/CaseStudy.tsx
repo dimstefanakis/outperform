@@ -140,7 +140,7 @@ export default function CaseStudy({
                   </h3>
                   <Separator className="w-[50px] my-4 bg-white" />
                   {pillar.description && (
-                    <p className="text-md max-w-full ml-6 text-gray-500">
+                    <p className="text-md whitespace-break-spaces max-w-full ml-6 text-gray-500">
                       {pillar.description}
                     </p>
                   )}
