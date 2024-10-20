@@ -38,13 +38,13 @@ export default function Consulting({ data }: { data: ConsultingSection }) {
     <div className="flex flex-col w-full my-10 md:my-20">
       <div className="flex w-full flex-col">
         {data.title && (
-          <div className="text-black text-4xl md:text-5xl font-bold mt-6 mb-10 flex">
+          <div className="text-black text-4xl md:text-5xl 4xl:text-[5rem] font-bold mt-6 mb-10 flex">
             <ImageBox
               image={data.icon}
               height={data.icon?.asset.metadata.dimensions.height}
               width={data.icon?.asset.metadata.dimensions.width}
               alt={data.title}
-              classesWrapper="w-[30px] min-w-[30px] md:w-[40px] md:min-w-[40px] mr-2 object-contain rounded-none"
+              classesWrapper="w-[30px] min-w-[30px] md:w-[40px] md:min-w-[40px] 4xl:w-[60px] 4xl:min-w-[60px] mr-2 object-contain rounded-none"
             />
             <span>{data.title}</span>
           </div>
@@ -69,7 +69,7 @@ export default function Consulting({ data }: { data: ConsultingSection }) {
                   />
                   <div className="flex flex-col mt-6">
                     <div className="flex flex-row items-center">
-                      <h3 className="text-black text-2xl font-bold my-0">
+                      <h3 className="text-black text-2xl 4xl:text-[3rem] font-bold my-0">
                         {item.title}
                       </h3>
                       <ImageBox
@@ -77,10 +77,10 @@ export default function Consulting({ data }: { data: ConsultingSection }) {
                         height={item.icon?.asset.metadata.dimensions.height}
                         width={item.icon?.asset.metadata.dimensions.width}
                         alt={item.title}
-                        classesWrapper="w-[30px] min-w-[30px] md:w-[20px] md:min-w-[20px] ml-2 object-contain rounded-none rotate-[270deg] mb-2"
+                        classesWrapper="w-[30px] min-w-[30px] 4xl:w-[32px] 4xl:min-w-[32px] md:w-[20px] md:min-w-[20px] ml-2 object-contain rounded-none rotate-[270deg] mb-2"
                       />
                     </div>
-                    <p className="text-gray-500 text-base mt-2 max-w-[75%] lg:max-w-[270px]">
+                    <p className="text-gray-500 text-base 4xl:text-[1.5rem] 4xl:leading-[2rem] mt-2 max-w-[75%] lg:max-w-[270px] 4xl:max-w-[400px]">
                       {item.description}
                     </p>
                   </div>
