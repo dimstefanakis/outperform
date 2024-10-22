@@ -59,7 +59,7 @@ export default function Navbar(props: NavbarProps) {
         height: isSticky ? '70px' : '',
       }}
     >
-      <div className="container mx-auto px-0 lg:px-4 4xl:max-w-[1600px]">
+      <div className="container mx-auto px-0 lg:px-4 5xl:max-w-[1600px]">
         <div className="flex items-center justify-between py-4 relative">
           <div className="flex items-center">
             <ImageBox
@@ -67,7 +67,7 @@ export default function Navbar(props: NavbarProps) {
               height={data?.logo?.asset?.metadata?.dimensions?.height}
               width={data?.logo?.asset?.metadata?.dimensions?.width}
               alt="Logo"
-              classesWrapper="w-[160px] 4xl:w-[200px] object-contain relative"
+              classesWrapper="w-[160px] 5xl:w-[200px] object-contain relative"
             />
           </div>
           {isLaptop ? (
@@ -80,7 +80,7 @@ export default function Navbar(props: NavbarProps) {
                 return (
                   <Link
                     key={key}
-                    className={`text-xl 4xl:text-[1.6rem] transition-colors duration-200 ${isSticky ? 'text-white' : 'text-white'}`}
+                    className={`text-xl 5xl:text-[1.6rem] transition-colors duration-200 ${isSticky ? 'text-white' : 'text-white'}`}
                     href={href}
                   >
                     {menuItem.label}
@@ -108,9 +108,9 @@ export default function Navbar(props: NavbarProps) {
                       data.contactCTA.icon?.asset?.metadata?.dimensions?.width
                     }
                     alt="Contact Icon"
-                    classesWrapper="w-[16px] 4xl:w-[20px] mr-2 mb-1 object-contain rounded-none"
+                    classesWrapper="w-[16px] 5xl:w-[20px] mr-2 mb-1 object-contain rounded-none"
                   />
-                  <span className="text-white 4xl:text-[1.6rem]">{data.contactCTA.text}</span>
+                  <span className="text-white 5xl:text-[1.6rem]">{data.contactCTA.text}</span>
                 </div>
               </Link>
               <div className="flex justify-center items-center ml-4 cursor-pointer"
@@ -121,9 +121,9 @@ export default function Navbar(props: NavbarProps) {
                   height={data.auditCTA?.icon?.asset?.metadata?.dimensions?.height}
                   width={data.auditCTA?.icon?.asset?.metadata?.dimensions?.width}
                   alt="Audit Icon"
-                  classesWrapper="w-[16px] 4xl:w-[20px] mr-2 mb-1 object-contain rounded-none"
+                  classesWrapper="w-[16px] 5xl:w-[20px] mr-2 mb-1 object-contain rounded-none"
                 />
-                <span className="text-white 4xl:text-[1.6rem]">{data.auditCTA?.text}</span>
+                <span className="text-white 5xl:text-[1.6rem]">{data.auditCTA?.text}</span>
               </div>
             </div>
           ) : null}
