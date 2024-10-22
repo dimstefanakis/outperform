@@ -83,7 +83,7 @@ export default function CaseStudy({
             <span className="text-white text-2xl font-bold mt-[4px]">#{index + 1}</span>
           </div>
         </div>
-        <div className="grid my-0 xl:grid-cols-2 gap-20 md:ml-20">
+        <div className="xl:grid my-0 xl:grid-cols-2 gap-20 md:ml-20">
           <div
             className={`flex flex-col relative p-6 md:p-0`}
             style={{
