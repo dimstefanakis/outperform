@@ -7,13 +7,13 @@ export default function Ads({ data }: { data: AdsSection }) {
     <div className="flex flex-col w-full my-14 md:my-20">
       <div className="flex w-full flex-col">
         {data.title && (
-          <div className="text-black text-4xl md:text-5xl 4xl:text-[5rem] font-bold mt-6 mb-10 flex">
+          <div className="text-black text-5xl md:text-5xl 5xl:text-[5rem] font-bold mt-6 mb-10 flex">
             <ImageBox
               image={data.icon}
               height={data.icon?.asset.metadata.dimensions.height}
               width={data.icon?.asset.metadata.dimensions.width}
               alt={data.title}
-              classesWrapper="w-[30px] min-w-[30px] md:w-[40px] md:min-w-[40px] 4xl:w-[60px] 4xl:min-w-[60px] mr-2 object-contain rounded-none"
+              classesWrapper="w-[30px] min-w-[30px] md:w-[40px] md:min-w-[40px] 5xl:w-[60px] 5xl:min-w-[60px] mr-2 object-contain rounded-none"
             />
             <span>{data.title}</span>
           </div>
@@ -37,7 +37,7 @@ export default function Ads({ data }: { data: AdsSection }) {
                     />
                   </div>
                   <div className="flex flex-col w-full m-0">
-                    <span className="text-xl 4xl:text-[2rem] font-bold text-left md:text-center text-gray-500 md:text-black m-0">
+                    <span className="text-xl 5xl:text-[2rem] font-bold text-left md:text-center text-gray-500 md:text-black m-0">
                       {item.title}
                     </span>
                   </div>
