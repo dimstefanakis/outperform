@@ -103,7 +103,7 @@ export default function CaseStudy({
                   width: 'auto',
                 }}
               />
-              <h1 className="text-5xl m-0 md:ml-8 5xl:text-[4rem] 5xl:leading-[3.5rem] xl:ml-0 whitespace-break-spaces">
+              <h1 className="text-3xl m-0 md:ml-8 5xl:text-[4rem] 5xl:leading-[3.5rem] xl:ml-0 whitespace-break-spaces">
                 {data?.studyTitle}
               </h1>
               {isLaptop && (
@@ -199,7 +199,7 @@ export default function CaseStudy({
                 height={data?.image?.asset?.metadata?.dimensions?.height}
                 width={data?.image?.asset?.metadata?.dimensions?.width}
                 alt="background image"
-                classesWrapper="w-full h-full object-cover"
+                classesWrapper="w-full h-full max-h-[1000px] md:max-h-[auto] object-cover"
                 imageClasses="h-full object-cover rounded-lg full-opacity-to-transparent"
               />
             </div>
