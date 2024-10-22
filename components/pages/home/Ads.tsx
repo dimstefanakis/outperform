@@ -7,7 +7,7 @@ export default function Ads({ data }: { data: AdsSection }) {
     <div className="flex flex-col w-full my-14 md:my-20">
       <div className="flex w-full flex-col">
         {data.title && (
-          <div className="text-black text-5xl md:text-5xl 5xl:text-[5rem] font-bold mt-6 mb-10 flex">
+          <div className="text-black text-4xl md:text-5xl 5xl:text-[5rem] font-bold mt-6 mb-10 flex">
             <ImageBox
               image={data.icon}
               height={data.icon?.asset.metadata.dimensions.height}
