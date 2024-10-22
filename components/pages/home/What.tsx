@@ -9,7 +9,7 @@ export function What({ data }: { data: WhatSection }) {
       <div className="flex w-full flex-col bg-black py-10 pt-24 px-4 lg:px-10 rounded-0 md:rounded-[25px]">
         {data.title && (
           <div>
-            <span className="text-md font-bold text-blue-500">
+            <span className="text-md 4xl:text-[1.5rem] font-bold text-blue-500">
               {data.title}
             </span>
             <Separator className="bg-blue-500 h-[2px] w-[30px]" />
@@ -18,12 +18,12 @@ export function What({ data }: { data: WhatSection }) {
         <div className="flex flex-row">
           <div className="flex flex-col flex-1">
             {data.header && (
-              <div className="text-white text-5xl md:text-7xl font-bold mt-6">
+              <div className="text-white text-5xl md:text-7xl 4xl:text-[7rem] font-bold mt-6">
                 {data.header}
               </div>
             )}
             {data.description && (
-              <p className="text-gray-500 hidden md:block text-md md:text-lg mt-6 whitespace-break-spaces">
+              <p className="text-gray-500 hidden md:block text-md md:text-lg 4xl:text-[1.5rem] mt-6 whitespace-break-spaces">
                 {data.description}
               </p>
             )}
@@ -37,7 +37,7 @@ export function What({ data }: { data: WhatSection }) {
                   alt={client.clientName}
                   width={client.clientImage?.asset.metadata.dimensions.width}
                   height={client.clientImage?.asset.metadata.dimensions.height}
-                  imageClasses="w-[60px] md:w-auto h-auto md:h-[30px] mb-10 md:mb-0 md:ml-10 object-contain"
+                  imageClasses="w-[60px] 4xl:w-[100px] md:w-auto h-auto md:h-[30px] mb-10 md:mb-0 md:ml-10 object-contain"
                 />
               ))}
             </div>

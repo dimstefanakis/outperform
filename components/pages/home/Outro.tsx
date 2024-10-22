@@ -83,16 +83,16 @@ export function Outro({ data }: { data: OutroSection }) {
             height={data.cta_icon?.asset.metadata.dimensions.height}
             width={data.cta_icon?.asset.metadata.dimensions.width}
             alt={'CTA Icon'}
-            classesWrapper="w-3 h-3 mr-2 mb-1 rounded-none"
+            classesWrapper="w-3 h-3 4xl:w-5 4xl:h-5 mr-2 mb-1 rounded-none"
             imageClasses="w-full h-full"
           />
         )}
-        <span>{data.cta_text}</span>
+        <span className="4xl:text-[1.5rem]">{data.cta_text}</span>
       </button>
       {data.outro_description && (
         <div className='w-full flex flex-col items-center justify-center'>
-          <div className="w-full mt-6 text-[#686868] max-w-[500px] flex justify-end px-4 lg:px-10">
-            <div className="text-md md:text-xs text-center">
+          <div className="w-full mt-6 text-[#686868] max-w-[500px] 4xl:max-w-[700px] flex justify-end px-4 lg:px-10">
+            <div className="text-md md:text-xs 4xl:text-[1.5rem] 4xl:leading-[1.6rem] text-center">
               <CustomPortableText value={data.outro_description}
                 paragraphStyles={{
                   margin: '0px',

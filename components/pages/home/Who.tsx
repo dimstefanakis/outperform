@@ -18,7 +18,7 @@ export function Who({ data }: { data: WhoSection }) {
       <div className="flex w-full flex-col mt-24 px-4 lg:px-10">
         {data.header && (
           <div>
-            <span className="text-md font-bold text-blue-500">
+            <span className="text-md 4xl:text-[1.5rem] font-bold text-blue-500">
               {data.header}
             </span>
             <Separator className="bg-blue-500 h-[2px] w-[30px]" />
@@ -26,7 +26,7 @@ export function Who({ data }: { data: WhoSection }) {
         )}
         {data.title && (
           <div className="w-full md:w-1/3 mt-6">
-            <h1 className="text-5xl md:text-7xl font-bold">{data.title}</h1>
+            <h1 className="text-5xl md:text-7xl 4xl:text-[5rem] font-bold">{data.title}</h1>
           </div>
         )}
         {data.description && (
@@ -35,7 +35,7 @@ export function Who({ data }: { data: WhoSection }) {
               <Separator />
             </div>
             <div className="w-2/3">
-              <p className="text-gray-500 lg:max-w-[300px]">
+              <p className="text-gray-500 4xl:max-w-[500px] 4xl:text-[1.5rem] lg:max-w-[300px]">
                 {data.description}
               </p>
             </div>
@@ -45,7 +45,7 @@ export function Who({ data }: { data: WhoSection }) {
       <WhoCarousel data={data} />
       {data.footerHeader && (
         <div className="w-full flex justify-end px-4 lg:px-10">
-          <div className="font-semibold text-3xl text-right">
+          <div className="font-semibold text-3xl 4xl:text-[3rem] text-right">
             <CustomPortableText value={data.footerHeader}
               paragraphStyles={{
                 margin: '0px',
@@ -58,7 +58,7 @@ export function Who({ data }: { data: WhoSection }) {
         <div className="px-4 lg:px-10 w-full">
           <Separator className="w-full my-10" />
           <div className="w-full flex justify-start">
-            <p className="w-full max-w-[75%] md:max-w-md text-gray-500 whitespace-break-spaces">
+            <p className="w-full max-w-[75%] 4xl:max-w-[500px] 4xl:text-[1.4rem] md:max-w-md text-gray-500 whitespace-break-spaces">
               {data.footerDescription}
             </p>
           </div>

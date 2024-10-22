@@ -83,7 +83,7 @@ export default function CaseStudy({
             <span className="text-white text-2xl font-bold mt-[4px]">#{index + 1}</span>
           </div>
         </div>
-        <div className="grid my-0 xl:grid-cols-2 gap-20 md:ml-20">
+        <div className="xl:grid my-0 xl:grid-cols-2 gap-20 md:ml-20">
           <div
             className={`flex flex-col relative p-6 md:p-0`}
             style={{
@@ -97,17 +97,17 @@ export default function CaseStudy({
                 height={data?.clientImage?.asset?.metadata?.dimensions?.height}
                 width={data?.clientImage?.asset?.metadata?.dimensions?.width}
                 alt="client image"
-                classesWrapper="h-12 mt-12 xl:mt-0 mb-24 flex justify-center xl:justify-start mx-auto xl:mr-auto md:mx-0 min-w-[300px]"
+                classesWrapper="h-12 4xl:h-[100px] mt-12 xl:mt-0 mb-24 flex justify-center xl:justify-start mx-auto xl:mr-auto md:mx-0 min-w-[300px]"
                 imageClasses="object-contain h-full w-auto"
                 imagesStyles={{
                   width: 'auto',
                 }}
               />
-              <h1 className="text-4xl ml-8 xl:ml-0 whitespace-break-spaces">
+              <h1 className="text-4xl 4xl:text-[4rem] 4xl:leading-[3.5rem] ml-8 xl:ml-0 whitespace-break-spaces">
                 {data?.studyTitle}
               </h1>
               {isLaptop && (
-                <span className="text-gray-500 ml-8 xl:ml-0 text-xl mt-6 mb-24">
+                <span className="text-gray-500 4xl:text-[2rem] ml-8 xl:ml-0 text-xl mt-6 mb-24">
                   {data?.studyDescription}
                 </span>
               )}
@@ -135,12 +135,12 @@ export default function CaseStudy({
                       {data?.studyDescription}
                     </span>
                   )}
-                  <h3 className="text-lg font-bold text-white whitespace-break-spaces uppercase">
+                  <h3 className="text-lg 4xl:text-[2rem] 4xl:leading-[2rem] font-bold text-white whitespace-break-spaces uppercase">
                     {pillar.title}
                   </h3>
                   <Separator className="w-[50px] my-4 bg-white" />
                   {pillar.description && (
-                    <p className="text-md whitespace-break-spaces max-w-full ml-6 text-gray-500">
+                    <p className="text-md 4xl:text-[1.5rem] 4xl:leading-[2rem] whitespace-break-spaces max-w-full ml-6 text-gray-500">
                       {pillar.description}
                     </p>
                   )}
@@ -163,11 +163,11 @@ export default function CaseStudy({
                             }
                           >
                             <div className="flex flex-col bg-[#242424] rounded-lg p-4 h-full">
-                              <h3 className="text-sm font-bold text-white uppercase">
+                              <h3 className="text-sm 4xl:text-[1.5rem] 4xl:leading-[1.5rem] font-bold text-white uppercase">
                                 {carouselItem.title}
                               </h3>
                               <Separator className="w-[50px] my-4 bg-white" />
-                              <p className="text-xs max-w-full whitespace-break-spaces ml-0 text-gray-500 flex-grow">
+                              <p className="text-xs 4xl:text-[1.2rem] 4xl:leading-[1.5rem] max-w-full whitespace-break-spaces ml-0 text-gray-500 flex-grow">
                                 {carouselItem.description}
                               </p>
                             </div>
