@@ -103,7 +103,7 @@ export default function CaseStudy({
                   width: 'auto',
                 }}
               />
-              <h1 className="text-4xl 4xl:text-[4rem] 4xl:leading-[3.5rem] ml-8 xl:ml-0 whitespace-break-spaces">
+              <h1 className="text-4xl m-0 4xl:text-[4rem] 4xl:leading-[3.5rem] xl:ml-0 whitespace-break-spaces">
                 {data?.studyTitle}
               </h1>
               {isLaptop && (
