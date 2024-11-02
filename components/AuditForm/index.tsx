@@ -12,7 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { X, ChevronRight, ChevronLeft, Loader2 } from 'lucide-react'
+import { X, ChevronRight, ChevronLeft, Loader2, Check } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useForm, Controller } from 'react-hook-form'
 import { createAuditFormEntry } from '@/app/actions/createAuditFormEntry'
@@ -23,6 +23,88 @@ interface AuditFormProps {
   isOpen: boolean
   onClose: () => void
   logo: any
+}
+
+interface StepProgressProps {
+  step: number
+  totalSteps?: number
+  watch: any // from react-hook-form
+}
+
+const StepIndicator = ({ step, totalSteps = 3, watch }: StepProgressProps) => {
+  const calculateProgress = () => {
+    if (step === 4) return 100
+
+    const fields = {
+      1: ['name', 'email'],
+      2: ['businessName', 'websiteUrl', 'region'],
+      3: ['monthlySpend']
+    }
+
+    const totalFieldsUpToStep = Object.entries(fields)
+      .filter(([stepNum]) => parseInt(stepNum) <= step)
+      .reduce((acc, [_, stepFields]) => acc + stepFields.length, 0)
+
+    const filledFields = Object.entries(fields)
+      .filter(([stepNum]) => parseInt(stepNum) <= step)
+      .reduce((acc, [_, stepFields]) => {
+        return acc + stepFields.filter(field => Boolean(watch(field))).length
+      }, 0)
+
+    return (filledFields / totalFieldsUpToStep) * 100
+  }
+
+  const isCurrentStepComplete = () => {
+    const fields = {
+      1: ['name', 'email'],
+      2: ['businessName', 'websiteUrl', 'region'],
+      3: ['monthlySpend']
+    }
+
+    const currentStepFields = fields[step as keyof typeof fields] || []
+    return currentStepFields.every(field => Boolean(watch(field)))
+  }
+
+  return (
+    <div className="relative w-full mb-12">
+      {/* Background line */}
+      <div className="w-full h-[2px] bg-white" />
+      
+      {/* Progress line */}
+      <div 
+        className="absolute top-0 left-0 h-[2px] bg-blue-500 transition-all duration-300 ease-in-out"
+        style={{
+          width: `${calculateProgress()}%`
+        }}
+      />
+
+      {/* Step indicator */}
+      {step < 4 ? (
+        <div 
+          className="absolute top-1/2 -translate-y-1/2 flex items-center transition-all duration-300"
+          style={{
+            left: step === 1 ? '0%' : '20px'
+          }}
+        >
+          <div 
+            className={`flex-shrink-0 w-10 h-10 border-2 rounded-md flex items-center justify-center transition-colors duration-300 ${
+              isCurrentStepComplete() 
+                ? 'border-blue-500 bg-black' 
+                : 'border-white bg-black'
+            }`}
+          >
+            <span className={`${isCurrentStepComplete() ? 'text-blue-500' : 'text-white'} text-lg font-bold`}>{step}/3</span>
+          </div>
+        </div>
+      ) : (
+        <div className="absolute top-1/2 -translate-y-1/2 right-0 flex items-center">
+          <div className="flex-shrink-0 w-10 h-10 border-2 border-blue-500 rounded-md flex items-center justify-center bg-blue-500">
+            <Check className="h-6 w-6 text-white" />
+          </div>
+        </div>
+      )}
+    </div>
+  )
 }
 
 const AuditForm: React.FC<AuditFormProps> = ({ isOpen, onClose, logo }) => {
@@ -163,6 +245,8 @@ const AuditForm: React.FC<AuditFormProps> = ({ isOpen, onClose, logo }) => {
         <motion.div key={step} {...fadeInUp} className="mt-8 md:mt-0">
           {step < 4 && (
             <div>
+              <StepIndicator step={step} watch={watch} />
+              
               <div className="mb-6">
                 <h3 className="text-blue-500 text-xl md:hidden font-semibold inline-block">
                   {step === 1 && "CONTACT INFO"}
