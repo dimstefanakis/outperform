@@ -16,7 +16,7 @@ export interface HeroProps {
 export async function Hero({ data, navbarData }: HeroProps) {
   return (
     <div className="w-full flex justify-center align-center hero-section px-2 md:px-3 lg:px-3">
-      <div className="w-full relative bg-black h-[70vh] sm:h-[70vh] md:h-[70vh] lg:h-[70vh] xl:h-[70vh] 5xl:h-[80vh] rounded-lg lg:rounded-[25px] mt-2">
+      <div className="w-full relative bg-black h-[85vh] sm:h-[85vh] md:h-[85vh] lg:h-[85vh] xl:h-[85vh] 5xl:h-[85vh] rounded-lg lg:rounded-[25px] mt-2">
         {/*<Navbar />*/}
         <div className="block lg:hidden">
           <Link
