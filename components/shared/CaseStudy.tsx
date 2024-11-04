@@ -97,7 +97,7 @@ export default function CaseStudy({
                 height={data?.clientImage?.asset?.metadata?.dimensions?.height}
                 width={data?.clientImage?.asset?.metadata?.dimensions?.width}
                 alt="client image"
-                classesWrapper="h-12 5xl:h-[100px] mt-12 xl:mt-0 mb-24 flex justify-center xl:justify-start mx-auto xl:mr-auto md:mx-0 min-w-[300px]"
+                classesWrapper="h-12 5xl:h-[100px] self-center mt-12 xl:mt-0 mb-24 flex justify-center xl:justify-start mx-auto xl:mr-auto md:mx-0 w-full h-[100px] max-w-[200px]"
                 imageClasses="object-contain h-full w-auto"
                 imagesStyles={{
                   width: 'auto',
