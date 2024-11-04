@@ -42,7 +42,7 @@ export function WhoCarousel({ data }: { data: WhoSection }) {
             key={index}
             className="flex flex-col lg:flex-row items-start justify-center md:basis-1/2 lg:basis-1/3 mt-6 mx-4 lg:mx-10"
           >
-            <div className="w-[250px] lg:w-[250px]">
+            <div className="w-[300px] lg:w-[300px]">
               <Circle data={circle} />
             </div>
           </div>
@@ -59,7 +59,7 @@ export function WhoCarousel({ data }: { data: WhoSection }) {
                 key={index}
                 className="flex flex-col lg:flex-row items-center justify-center md:basis-1/2 lg:basis-1/3 mt-6 mx-4 lg:mx-10"
               >
-                <div className="w-[250px] lg:w-[250px]">
+                <div className="w-[300px] lg:w-[300px]">
                   <Circle data={circle} />
                 </div>
               </CarouselItem>
