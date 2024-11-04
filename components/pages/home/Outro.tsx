@@ -38,7 +38,7 @@ export function Outro({ data }: { data: OutroSection }) {
 
   return (
     <div className="w-full flex flex-col items-center justify-center pt-14 pb-20 bg-[#F6F6F6]">
-      <div className="w-full md:w-[70%]">
+      <div className="w-full md:w-[100%]">
         <Carousel
           setApi={setApi}
           opts={{
