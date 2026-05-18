@@ -157,10 +157,10 @@ const TermsOfService = () => {
               <AccordionContent>
                 <p>Questions about the Terms of Service should be sent to us at hello@outperform.com.</p>
                 <p>Our contact information is posted below:</p>
-                <p>Karpathian Lighthouse Limited</p>
-                <p>Michael Koutsofta 1</p>
-                <p>3031 Limassol</p>
-                <p>Cyprus</p>
+                <p>Outperform IKE</p>
+                <p>Grammou 71</p>
+                <p>15122 Marousi</p>
+                <p>Athens, Greece</p>
               </AccordionContent>
             </AccordionItem>
           </Accordion>
